@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 1997, Regents of the University of Minnesota
  *
  * main.c
@@ -30,18 +30,69 @@ int main(int argc, char *argv[])
 	int nodesCount;
 	int edgesCount;
 	
+	idx_t* xadj;	// Restrict begins and ends of adjacent vertex
+	idx_t* adjncy;	// List of adjacent vertices
+	idx_t* vwgt = NULL;
+	idx_t* adjwgt = NULL;
+	idx_t wgtﬂag = 0;	// No weight
+	idx_t numflag = 0;	// Numbering scheme - start from 0
+	idx_t ncon = 1;		// Number of weights each vertex has
+	idx_t nparts = 6;	// Number of partitions
+	real_t* tpwgts = NULL; // Fraction of vertex weight that should be distributed each domain
+	real_t* ubvec = NULL;  // Imbalance tolerance for each vertex weight
+	idx_t* options = NULL; // Additional parameters
+	idx_t edgecut;
+	idx_t* part = NULL; // Result of partitioning
+
 	int i;
 	int temp;
 
-
+	// Get the number of nodes and edges
 	fscanf(infoFile, "%d", &nodesCount);
 	fscanf(infoFile, "%d", &edgesCount);
 	fclose(infoFile);
 
+	// Get the xadj list
+	xadj = (idx_t*) malloc ((nodesCount + 1) * sizeof(idx_t));
+	for (i = 0; !feof(xadjFile); i++)
+	{
+		fscanf(xadjFile, "%d", &temp);
+		xadj[i] = temp;
+	}
 	fclose(xadjFile);
+
+	// Get the adjncy list
+	adjncy = (idx_t*) malloc(edgesCount * sizeof(idx_t));
+	for(i = 0; !feof(adjncyFile); i++)
+	{
+		fscanf(adjncyFile, "%d", &temp);
+		adjncy[i] = temp;
+	}
 	fclose(adjncyFile);
 
-	
+	// Fraction of vertex weight that should be distributed to each sub-domain 
+	// for each balance constraint
+	tpwgts = (real_t*) malloc(ncon * nparts * sizeof(real_t));
+
+	for(i = 0; i < ncon * nparts; i++)
+	{
+		tpwgts[i] = 1.0 / nparts;
+	}
+
+	ubvec = (real_t*) malloc(ncon * sizeof(real_t));
+	for(i = 0; i < ncon; i++)
+	{
+		ubvec[i] = 1.05;
+	}
+
+	// Additional parameters - all default here
+	options = (idx_t*) (10 * sizeof(idx_t));
+	for(i = 0; i < 10; i++)
+	{
+		options[i] = 0;
+	}
+
+	part = (idx_t*) malloc(nodesCount * sizeof(idx_t));
 
 
   //idx_t i, j, npes, mype, optype, nparts, adptf, options[10];
