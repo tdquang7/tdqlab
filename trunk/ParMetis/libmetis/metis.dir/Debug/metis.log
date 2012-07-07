@@ -1,0 +1,500 @@
+﻿Build started 7/7/2012 5:35:07 PM.
+     1>Project "C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\metis.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\Debug\".
+       InitializeBuildStatus:
+         Creating "metis.dir\Debug\metis.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/metis/libmetis/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\CMakeFiles\generate.stamp is up-to-date.
+       MakeDirsForCl:
+         Creating directory "C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\metis.dir\Debug\__\GKlib".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/metis/libmetis/." /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32 /D MSC /D _CRT_SECURE_NO_DEPRECATE /D USE_GKREGEX /D NDEBUG /D NDEBUG2 /D "__thread=__declspec(thread)" /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"metis.dir\Debug\\" /Fd"C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libmetis/Debug/metis.pdb" /Gd /TC /analyze- /errorReport:prompt "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\b64.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\error.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\fkvkselect.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\fs.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\getopt.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\htable.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\io.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\itemsets.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\mcore.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\omp.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pdb.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\random.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\seq.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\sort.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\timers.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\tokenizer.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\auxapi.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\bucketsort.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\checkgraph.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\compress.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fortran.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\frename.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kmetis.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mcutil.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mesh.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\meshpart.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mincover.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mmd.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\options.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\pmetis.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\refine.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\separator.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\srefine.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\timing.c" "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\wspace.c"  /Zm1000 
+         b64.c
+         blas.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c(25): warning C4244: 'initializing' : conversion from 'double' to 'intmax_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c(26): warning C4244: 'initializing' : conversion from 'double' to 'intmax_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c(27): warning C4244: 'initializing' : conversion from 'double' to 'intmax_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c(28): warning C4244: 'initializing' : conversion from 'double' to 'intmax_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c(29): warning C4244: 'initializing' : conversion from 'double' to 'ssize_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c(32): warning C4244: 'initializing' : conversion from 'double' to 'intmax_t', possible loss of data
+         csr.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(392): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(407): warning C4018: '>=' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1166): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1168): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1193): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1195): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1231): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1233): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1236): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1248): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1261): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1274): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1287): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1300): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1313): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1333): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1370): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1562): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1564): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c(1595): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         error.c
+         evaluate.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c(36): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c(75): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c(103): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c(117): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c(133): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         fkvkselect.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\fkvkselect.c(26): warning C4018: '<=' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\fkvkselect.c(90): warning C4018: '<=' : signed/unsigned mismatch
+         fs.c
+         getopt.c
+         gkregex.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(3148): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(3151): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(3166): warning C4018: '<=' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(3435): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(246) : see declaration of 'stricmp'
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(3683): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(3686): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(4136): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(4139): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(6888): warning C4018: '>' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(6913): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(7238): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(7256): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(7284): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c(7803): warning C4018: '<' : signed/unsigned mismatch
+         htable.c
+         io.c
+         itemsets.c
+         mcore.c
+         memory.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(28): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(28): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(28): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(28): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(29): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(29): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(29): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(29): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(30): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(30): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(30): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(30): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(31): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(31): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(31): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(31): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(32): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(32): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(32): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(32): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(34): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(34): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(34): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(34): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(35): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(35): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(35): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(35): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(36): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(36): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(36): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(36): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(37): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(37): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(37): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(37): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(38): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(38): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(38): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(38): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(39): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(39): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(39): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(39): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(40): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(40): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(40): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(40): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(41): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(41): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(41): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(41): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(42): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(42): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(42): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(42): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(63): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c(87): warning C4018: '<' : signed/unsigned mismatch
+         omp.c
+         pdb.c
+         pqueue.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(19): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(19): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(20): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(20): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(21): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(21): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(22): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(22): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(23): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(23): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(24): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c(24): warning C4018: '<' : signed/unsigned mismatch
+         random.c
+         seq.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\seq.c(131): warning C4018: '<' : signed/unsigned mismatch
+         sort.c
+         Generating Code...
+         Compiling...
+         string.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(46): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(47): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(49): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(153): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(162): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(165): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(181): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(190): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(262): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c(299): warning C4018: '<' : signed/unsigned mismatch
+         timers.c
+         tokenizer.c
+         auxapi.c
+         balance.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(23): warning C4244: 'function' : conversion from 'real_t' to 'int', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(68): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(94): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(136): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(143): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(43): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(43): warning C4101: 'pass' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(196): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(218): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(256): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(171): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(171): warning C4101: 'pass' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(315): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(377): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(441): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(284): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c(283): warning C4101: 'pass' : unreferenced local variable
+         bucketsort.c
+         checkgraph.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\checkgraph.c(178): warning C4101: 'l' : unreferenced local variable
+         coarsen.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(39): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(102): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(341): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(647): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(489): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(778): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(942): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c(800): warning C4101: 'l' : unreferenced local variable
+         compress.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\compress.c(154): warning C4101: 'padjwgt' : unreferenced local variable
+         contig.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(35): warning C4101: 'ii' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(35): warning C4101: 'jj' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(270): warning C4101: 'wgt' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(455): warning C4244: '=' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(338): warning C4101: 'other' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(338): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(534): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(534): warning C4101: 'jj' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(605): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c(605): warning C4101: 'jj' : unreferenced local variable
+         debug.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(50): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(197): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(257): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(257): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(342): warning C4101: 'bndind' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(341): warning C4101: 'minvol' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(342): warning C4101: 'pwgts' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(341): warning C4101: 'nbnd' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(342): warning C4101: 'bndptr' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(341): warning C4101: 'mincut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c(341): warning C4101: 'l' : unreferenced local variable
+         fm.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(56): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(59): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(88): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(143): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(150): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(31): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(243): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(248): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(293): warning C4244: '=' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(366): warning C4244: '=' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(378): warning C4244: '=' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c(210): warning C4101: 'me' : unreferenced local variable
+         fortran.c
+         frename.c
+         gklib.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(18): warning C4244: 'initializing' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(24): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(24): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(24): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(24): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(25): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(27): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(33): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(33): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(34): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c(34): warning C4018: '<' : signed/unsigned mismatch
+         graph.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c(51): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c(21): warning C4101: 'nvwgt' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c(20): warning C4101: 'sum' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c(20): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c(110): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+         initpart.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(136): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(118): warning C4101: 'icut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(117): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(118): warning C4101: 'mincut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(117): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(117): warning C4101: 'from' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(117): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(213): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(214): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(196): warning C4101: 'gain' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(194): warning C4101: 'icut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(194): warning C4101: 'mincut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(194): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(194): warning C4101: 'from' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(328): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(328): warning C4101: 'mincut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(328): warning C4101: 'from' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(328): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(388): warning C4101: 'ncon' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(388): warning C4101: 'i' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(388): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(388): warning C4101: 'mincut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(388): warning C4101: 'from' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(388): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(453): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(454): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(439): warning C4101: 'gain' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(437): warning C4101: 'icut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(437): warning C4101: 'mincut' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(437): warning C4101: 'me' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(437): warning C4101: 'from' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(573): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c(573): warning C4101: 'mincut' : unreferenced local variable
+         kmetis.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kmetis.c(108): warning C4101: 'status' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kmetis.c(105): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kmetis.c(175): warning C4101: 'ntrials' : unreferenced local variable
+         kwayfm.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(102): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(103): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(104): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(182): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(322): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(64): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(409): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(410): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(411): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(374): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(748): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(750): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(824): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(978): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(688): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(1087): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(1089): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(1030): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c(1465): warning C4101: 'l' : unreferenced local variable
+         kwayrefine.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c(54): warning C4305: 'function' : truncation from 'double' to 'real_t'
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c(69): warning C4305: 'function' : truncation from 'double' to 'real_t'
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c(151): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c(564): warning C4101: 'pid' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c(564): warning C4101: 'l' : unreferenced local variable
+         Generating Code...
+         Compiling...
+         mcutil.c
+         mesh.c
+         meshpart.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\meshpart.c(191): warning C4244: '=' : conversion from 'real_t' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\meshpart.c(173): warning C4101: 'k' : unreferenced local variable
+         minconn.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c(203): warning C4305: 'initializing' : truncation from 'double' to 'real_t'
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c(256): warning C4244: '=' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c(480): warning C4101: 'l' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c(480): warning C4101: 'jj' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c(564): warning C4101: 'jj' : unreferenced local variable
+         mincover.c
+         mmd.c
+         ometis.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c(109): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c(186): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c(239): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c(367): warning C4244: 'function' : conversion from 'double' to 'idx_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c(555): warning C4101: 'mypart' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c(657): warning C4101: 'j' : unreferenced local variable
+         options.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\options.c(78): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\options.c(103): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\options.c(115): warning C4244: 'function' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\options.c(119): warning C4305: '+=' : truncation from 'double' to 'real_t'
+         parmetis.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(108): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(164): warning C4101: 'i' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(164): warning C4101: 'j' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(296): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(384): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(390): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(521): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(522): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(526): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(612): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(632): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c(638): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+         pmetis.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\pmetis.c(179): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\pmetis.c(201): warning C4244: 'function' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\pmetis.c(202): warning C4244: 'function' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\pmetis.c(160): warning C4101: 'j' : unreferenced local variable
+         refine.c
+         separator.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\separator.c(23): warning C4101: 'k' : unreferenced local variable
+         sfm.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(55): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(75): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(76): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(159): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(179): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(185): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(294): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(316): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(394): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(399): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(497): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(523): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(592): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(597): warning C4244: 'function' : conversion from 'idx_t' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c(479): warning C4101: 'pass' : unreferenced local variable
+         srefine.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\srefine.c(139): warning C4101: 'j' : unreferenced local variable
+         stat.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c(24): warning C4101: 'tmpptr' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c(23): warning C4101: 'k' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c(140): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c(148): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c(129): warning C4101: 'balance' : unreferenced local variable
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c(171): warning C4244: '=' : conversion from 'double' to 'real_t', possible loss of data
+         timing.c
+         wspace.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\wspace.c(177): warning C4018: '>=' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\wspace.c(205): warning C4018: '>=' : signed/unsigned mismatch
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/metis/libmetis/." /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32 /D MSC /D _CRT_SECURE_NO_DEPRECATE /D USE_GKREGEX /D NDEBUG /D NDEBUG2 /D "__thread=__declspec(thread)" /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"metis.dir\Debug\/__/GKlib/util.c.obj" /Fd"C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libmetis/Debug/metis.pdb" /Gd /TC /analyze- /errorReport:prompt "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c"  /Zm1000 
+         util.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c(26): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c(30): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c(68): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c(72): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c(73): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c(106): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include" /I"C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/metis/libmetis/." /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32 /D MSC /D _CRT_SECURE_NO_DEPRECATE /D USE_GKREGEX /D NDEBUG /D NDEBUG2 /D "__thread=__declspec(thread)" /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"metis.dir\Debug\/util.c.obj" /Fd"C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libmetis/Debug/metis.pdb" /Gd /TC /analyze- /errorReport:prompt "C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\util.c"  /Zm1000 
+         util.c
+     1>C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\util.c(35): warning C4018: '<' : signed/unsigned mismatch
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\Debug\metis.lib" /NOLOGO metis.dir\Debug\b64.obj
+         metis.dir\Debug\blas.obj
+         metis.dir\Debug\csr.obj
+         metis.dir\Debug\error.obj
+         metis.dir\Debug\evaluate.obj
+         metis.dir\Debug\fkvkselect.obj
+         metis.dir\Debug\fs.obj
+         metis.dir\Debug\getopt.obj
+         metis.dir\Debug\gkregex.obj
+         metis.dir\Debug\htable.obj
+         metis.dir\Debug\io.obj
+         metis.dir\Debug\itemsets.obj
+         metis.dir\Debug\mcore.obj
+         metis.dir\Debug\memory.obj
+         metis.dir\Debug\omp.obj
+         metis.dir\Debug\pdb.obj
+         metis.dir\Debug\pqueue.obj
+         metis.dir\Debug\random.obj
+         metis.dir\Debug\seq.obj
+         metis.dir\Debug\sort.obj
+         metis.dir\Debug\string.obj
+         metis.dir\Debug\timers.obj
+         metis.dir\Debug\tokenizer.obj
+         metis.dir\Debug\auxapi.obj
+         metis.dir\Debug\balance.obj
+         metis.dir\Debug\bucketsort.obj
+         metis.dir\Debug\checkgraph.obj
+         metis.dir\Debug\coarsen.obj
+         metis.dir\Debug\compress.obj
+         metis.dir\Debug\contig.obj
+         metis.dir\Debug\debug.obj
+         metis.dir\Debug\fm.obj
+         metis.dir\Debug\fortran.obj
+         metis.dir\Debug\frename.obj
+         metis.dir\Debug\gklib.obj
+         metis.dir\Debug\graph.obj
+         metis.dir\Debug\initpart.obj
+         metis.dir\Debug\kmetis.obj
+         metis.dir\Debug\kwayfm.obj
+         metis.dir\Debug\kwayrefine.obj
+         metis.dir\Debug\mcutil.obj
+         metis.dir\Debug\mesh.obj
+         metis.dir\Debug\meshpart.obj
+         metis.dir\Debug\minconn.obj
+         metis.dir\Debug\mincover.obj
+         metis.dir\Debug\mmd.obj
+         metis.dir\Debug\ometis.obj
+         metis.dir\Debug\options.obj
+         metis.dir\Debug\parmetis.obj
+         metis.dir\Debug\pmetis.obj
+         metis.dir\Debug\refine.obj
+         metis.dir\Debug\separator.obj
+         metis.dir\Debug\sfm.obj
+         metis.dir\Debug\srefine.obj
+         metis.dir\Debug\stat.obj
+         metis.dir\Debug\timing.obj
+         metis.dir\Debug\wspace.obj
+         metis.dir\Debug\/__/GKlib/util.c.obj
+         metis.dir\Debug\/util.c.obj
+         metis.vcxproj -> C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\Debug\metis.lib
+       FinalizeBuildStatus:
+         Deleting file "metis.dir\Debug\metis.unsuccessfulbuild".
+         Touching "metis.dir\Debug\metis.lastbuildstate".
+     1>Done Building Project "C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libmetis\metis.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.24

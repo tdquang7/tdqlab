@@ -1,0 +1,37 @@
+Determining if the include file execinfo.h exists failed with the following output:
+Change Dir: C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MICROS~2.0\Common7\IDE\devenv.com CMAKE_TRY_COMPILE.sln /build Debug /project cmTryCompileExec2944968377
+
+Microsoft (R) Visual Studio Version 10.0.40219.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec2944968377, Configuration: Debug Win32 ------
+1>  Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 16.00.40219.01 for 80x86
+1>  Copyright (C) Microsoft Corporation.  All rights reserved.
+1>  
+1>  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec2944968377.dir\Debug\\" /Fd"C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2944968377.pdb" /Gd /TC /analyze- /errorReport:prompt C:\Users\tdqua_000\Desktop\MyLab\ParMetis\CMakeFiles\CMakeTmp\CheckIncludeFile.c  /Zm1000 
+1>  
+1>  CheckIncludeFile.c
+1>C:\Users\tdqua_000\Desktop\MyLab\ParMetis\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'execinfo.h': No such file or directory
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if the function getline exists failed with the following output:
+Change Dir: C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MICROS~2.0\Common7\IDE\devenv.com CMAKE_TRY_COMPILE.sln /build Debug /project cmTryCompileExec3754431949
+
+Microsoft (R) Visual Studio Version 10.0.40219.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec3754431949, Configuration: Debug Win32 ------
+1>  Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 16.00.40219.01 for 80x86
+1>  Copyright (C) Microsoft Corporation.  All rights reserved.
+1>  
+1>  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=getline /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3754431949.dir\Debug\\" /Fd"C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3754431949.pdb" /Gd /TC /analyze- /errorReport:prompt "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"  /Zm1000 
+1>  
+1>  CheckFunctionExists.c
+1>CheckFunctionExists.obj : error LNK2019: unresolved external symbol _getline referenced in function _main
+1>C:\Users\tdqua_000\Desktop\MyLab\ParMetis\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3754431949.exe : fatal error LNK1120: 1 unresolved externals
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+
