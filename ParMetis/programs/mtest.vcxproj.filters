@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\programs\mtest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\programs\io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\cxx.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\cxxd.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpe.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpich2.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpich2g.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpich2s.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\mpe.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\mpi.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\libfmpich2g.a" />
+    <None Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\libmpi.a" />
+    <None Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\libmpicxx.a" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\parmetis-4.0.2\programs\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{782656C1-D6C6-4854-9BB3-E3D69147B476}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

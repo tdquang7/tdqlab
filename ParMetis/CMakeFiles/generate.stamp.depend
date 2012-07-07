@@ -1,0 +1,28 @@
+# CMake generation dependency list for this directory.
+C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/CMakeLists.txt
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeSystem.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeCCompiler.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeCXXCompiler.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeGenericSystem.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/Platform/WindowsPaths.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeCInformation.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-cl.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeCPlatform.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeCXXPlatform.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/Platform/cl.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeRCCompiler.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeRCInformation.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeCXXInformation.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-cl.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeCPlatform.cmake
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/CMakeCXXPlatform.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/Platform/cl.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
+C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/metis/GKlib/GKlibSystem.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CheckFunctionExists.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeExpandImportedTargets.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+C:/Program Files (x86)/CMake 2.8/share/cmake-2.8/Modules/CheckIncludeFile.cmake

@@ -1,0 +1,8 @@
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/ALL_BUILD.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/CMakeFiles/ZERO_CHECK.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libmetis/CMakeFiles/metis.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/programs/CMakeFiles/mtest.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libparmetis/CMakeFiles/parmetis.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/programs/CMakeFiles/parmetis_prog.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/programs/CMakeFiles/pometis.dir
+C:/Users/tdqua_000/Desktop/MyLab/ParMetis/programs/CMakeFiles/ptest.dir

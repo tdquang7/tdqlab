@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\b64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\blas.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\csr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\evaluate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\fkvkselect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\fs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\getopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\gkregex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\htable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\itemsets.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\mcore.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\omp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pdb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\pqueue.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\random.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\seq.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\sort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\timers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\tokenizer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\GKlib\util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\auxapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\balance.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\bucketsort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\checkgraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\coarsen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\contig.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\fortran.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\frename.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\gklib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\graph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\initpart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kmetis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayfm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\kwayrefine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mcutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mesh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\meshpart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\minconn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mincover.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\mmd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\ometis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\options.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\parmetis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\pmetis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\refine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\separator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\sfm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\srefine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\stat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\timing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\metis\libmetis\wspace.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\parmetis-4.0.2\metis\libmetis\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{782656C1-D6C6-4854-9BB3-E3D69147B476}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

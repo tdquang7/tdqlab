@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{B9509BA0-8A15-436C-8FF3-12D450B734D6}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>parmetis</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">parmetis.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">parmetis</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">parmetis.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">parmetis</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">parmetis.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">parmetis</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">parmetis.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">parmetis</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files %28x86%29\MPICH2\include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files %28x86%29\MPICH2\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Debug</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libparmetis/Debug/parmetis.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Release</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libparmetis/Release/parmetis.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>MinSizeRel</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libparmetis/MinSizeRel/parmetis.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>RelWithDebInfo</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libparmetis/RelWithDebInfo/parmetis.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32;MSC;_CRT_SECURE_NO_DEPRECATE;USE_GKREGEX;NDEBUG;NDEBUG2;__thread=__declspec(thread);NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/GKlib;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/METIS/include;C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\parmetis-4.0.2\libparmetis\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HC:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2 -BC:/Users/tdqua_000/Desktop/MyLab/ParMetis --check-stamp-file C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HC:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2 -BC:/Users/tdqua_000/Desktop/MyLab/ParMetis --check-stamp-file C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HC:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2 -BC:/Users/tdqua_000/Desktop/MyLab/ParMetis --check-stamp-file C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HC:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2 -BC:/Users/tdqua_000/Desktop/MyLab/ParMetis --check-stamp-file C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/tdqua_000/Desktop/MyLab/parmetis-4.0.2/libparmetis/CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\tdqua_000\Desktop\MyLab\ParMetis\libparmetis\CMakeFiles\generate.stamp</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\akwayfm.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\ametis.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\balancemylink.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\comm.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\csrmatch.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\ctrl.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\debug.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\diffutil.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\frename.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\gkmetis.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\gkmpi.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\graph.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\initbalance.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\initmsection.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\initpart.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\kmetis.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\kwayrefine.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\match.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\mdiffusion.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\mesh.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\mmetis.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\move.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\msetup.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\node_refine.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\ometis.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\pspases.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\redomylink.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\remap.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\renumber.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\rmetis.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\selectq.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\serial.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\stat.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\timer.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\util.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\wave.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\weird.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\wspace.c" />
+    <ClCompile Include="C:\Users\tdqua_000\Desktop\MyLab\parmetis-4.0.2\libparmetis\xyzpart.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:/Users/tdqua_000/Desktop/MyLab/ParMetis/ZERO_CHECK.vcxproj">
+      <Project>AACE1B2E-DCB5-408C-A4E3-02EA70ED4FA0</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:/Users/tdqua_000/Desktop/MyLab/ParMetis/libmetis/metis.vcxproj">
+      <Project>81323B0E-8F0D-4B94-9D06-48AAB6F9749F</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\cxx.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\cxxd.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpe.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpich2.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpich2g.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\fmpich2s.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\mpe.lib" />
+    <Library Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\mpi.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\libfmpich2g.a" />
+    <None Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\libmpi.a" />
+    <None Include="..\..\..\..\..\..\Program Files (x86)\MPICH2\lib\libmpicxx.a" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
