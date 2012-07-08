@@ -47,11 +47,13 @@ namespace TestReadTwitterData
                 string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
                 string adjncyPath = @"E:\Lab\Triangles data\ajdncy.txt";
                 string infoPath = @"E:\Lab\Triangles data\info.txt";
+                string vertexPath = @"E:\Lab\Triangles data\vertexList.txt";
 
                 StreamReader reader = new StreamReader(inputFile);
                 StreamWriter xadjWriter = new StreamWriter(xadjPath);
                 StreamWriter adjncyWriter = new StreamWriter(adjncyPath);
                 StreamWriter infoWriter = new StreamWriter(infoPath);
+                StreamWriter vertexWriter = new StreamWriter(vertexPath);
 
                 // Header
                 string line;
@@ -69,53 +71,54 @@ namespace TestReadTwitterData
                 // Extract x and y                
                 string[] parts = line.Split(new string[] { SPACE }, StringSplitOptions.None);
                 int nodesNumber = int.Parse(parts[2]);
-                int edgesNumber = int.Parse(parts[4]);
-                
+                int edgesNumber = int.Parse(parts[4]);                
 
                 line = reader.ReadLine(); // Forth line just the table header
-                                
+
                 string lastId = "";
-                int rightbound = 0;
-                int count = 0; // Counting to ensure generate equals to nodesNumber
+                int rightbound = 0;                
 
                 for (int i = 0; i < edgesNumber; i++)
                 {
                     line = reader.ReadLine(); // Format: SourceId \t DestId
                     parts = line.Split(new string[] { TAB }, StringSplitOptions.None);
                     string id = parts[0];
-                    string destId = parts[1];                   
+                    string destId = parts[1];
 
                     if (id != lastId) // Change id occurs
                     {
-                        if (lastId == "") lastId = "0"; // Lazy, short style
+                        if (lastId == "")
+                        {
+                            lastId = "0"; 
+                        }
 
                         int left = int.Parse(lastId);
                         int right = int.Parse(id);
 
-                        if (right - left > 1) // There are vertices skipped
+                        if ((right - left) > 1) // There are vertices skipped
                         {
-                            xadjWriter.Write(rightbound + " "); // Close previous                            
+                            xadjWriter.WriteLine(rightbound); // Close previous   
                             rightbound++;
 
                             for (int j = left + 1; j < right; j++)
                             {
-                                xadjWriter.Write(rightbound + " ");                               
-
-                                adjncyWriter.Write(j + " ");
+                                xadjWriter.WriteLine(rightbound);
+                                adjncyWriter.WriteLine(j);
                                 rightbound++;
-                            }                            
+                            }
+                        }
+                        else
+                        {
+                            xadjWriter.WriteLine(rightbound);                      
                         }
 
-                        lastId = id;
-                        xadjWriter.Write(rightbound + " "); 
-                        count+= right - left;
+                        lastId = id;                        
                     }
 
-                    adjncyWriter.Write(destId + " ");
+                    adjncyWriter.WriteLine(destId);
                     rightbound++;
                 }
 
-                // The rest of nodes, not check yet
                 infoWriter.WriteLine(nodesNumber);
                 infoWriter.WriteLine(edgesNumber);
                
@@ -123,11 +126,7 @@ namespace TestReadTwitterData
                 xadjWriter.Close();
                 adjncyWriter.Close();
                 infoWriter.Close();
-
-                reader.Dispose();
-                xadjWriter.Dispose();
-                adjncyWriter.Dispose();
-                infoWriter.Dispose();
+                vertexWriter.Close();
             }
         }
 
@@ -148,6 +147,20 @@ namespace TestReadTwitterData
         {
             if (backgroundWorker1.WorkerSupportsCancellation == true)
                 backgroundWorker1.CancelAsync();
+        }
+
+        private void btnCheckInfo_Click(object sender, EventArgs e)
+        {
+            //string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
+            //StreamReader reader = new StreamReader(xadjPath);
+
+            //string s = reader.ReadToEnd();
+            //string[] parts = s.Split(new string[] { " " }, StringSplitOptions.None);
+
+            //reader.Close();
+            //reader.Dispose();
+
+            bool b = 6 - 4 > 1;
         }
 
     }

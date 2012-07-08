@@ -34,12 +34,13 @@
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCheckInfo = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(84, 327);
+            this.btnGenerate.Location = new System.Drawing.Point(41, 327);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 0;
@@ -74,7 +75,7 @@
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(191, 327);
+            this.btnCancel.Location = new System.Drawing.Point(137, 327);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -82,11 +83,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnCheckInfo
+            // 
+            this.btnCheckInfo.Location = new System.Drawing.Point(241, 327);
+            this.btnCheckInfo.Name = "btnCheckInfo";
+            this.btnCheckInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckInfo.TabIndex = 4;
+            this.btnCheckInfo.Text = "Check info";
+            this.btnCheckInfo.UseVisualStyleBackColor = true;
+            this.btnCheckInfo.Click += new System.EventHandler(this.btnCheckInfo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 385);
+            this.Controls.Add(this.btnCheckInfo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtContent);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.ToolStripProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnCheckInfo;
     }
 }
 
