@@ -76,7 +76,8 @@ namespace TestReadTwitterData
                 line = reader.ReadLine(); // Forth line just the table header
 
                 string lastId = "";
-                int rightbound = 0;                
+                int rightbound = 0;
+                int actualEdges = edgesNumber;
 
                 for (int i = 0; i < edgesNumber; i++)
                 {
@@ -106,6 +107,8 @@ namespace TestReadTwitterData
                                 adjncyWriter.WriteLine(j);
                                 rightbound++;
                             }
+
+                            actualEdges += right - left - 1;
                         }
                         else
                         {
@@ -119,8 +122,10 @@ namespace TestReadTwitterData
                     rightbound++;
                 }
 
+                xadjWriter.WriteLine(rightbound);
+
                 infoWriter.WriteLine(nodesNumber);
-                infoWriter.WriteLine(edgesNumber);
+                infoWriter.WriteLine(actualEdges);
                
                 reader.Close();
                 xadjWriter.Close();
