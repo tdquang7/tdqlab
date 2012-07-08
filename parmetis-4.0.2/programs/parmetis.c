@@ -19,13 +19,15 @@
 **************************************************************************/
 int main(int argc, char *argv[])
 {
-	char* infoPath = "E:\Lab\Triangles data\info.txt";
-	char* xadjPath = "E:\Lab\Triangles data\xadj.txt";
-	char* adjncyPath = "E:\Lab\Triangles data\ajdncy.txt";
+	char* infoPath = "E:\\Lab\\Triangles data\\info.txt";
+	char* xadjPath = "E:\\Lab\\Triangles data\\xadj.txt";
+	char* adjncyPath = "E:\\Lab\\Triangles data\\ajdncy.txt";
+	char* outputPath = "E:\\Lab\\Triangles data\\result.txt";
 
 	FILE* infoFile = fopen(infoPath, "r");
 	FILE* xadjFile = fopen(xadjPath, "r");
 	FILE* adjncyFile = fopen(adjncyPath, "r");
+	FILE* outputFile = fopen(outputPath, "w");
 
 	int nodesCount;
 	int edgesCount;
@@ -34,7 +36,7 @@ int main(int argc, char *argv[])
 	idx_t* adjncy;	// List of adjacent vertices
 	idx_t* vwgt = NULL;
 	idx_t* adjwgt = NULL;
-	idx_t wgtﬂag = 0;	// No weight
+	idx_t wgtflag = 0;	// No weight
 	idx_t numflag = 0;	// Numbering scheme - start from 0
 	idx_t ncon = 1;		// Number of weights each vertex has
 	idx_t nparts = 6;	// Number of partitions
@@ -42,7 +44,14 @@ int main(int argc, char *argv[])
 	real_t* ubvec = NULL;  // Imbalance tolerance for each vertex weight
 	idx_t* options = NULL; // Additional parameters
 	idx_t edgecut;
-	idx_t* part = NULL; // Result of partitioning
+	idx_t* part = NULL;	   // Result of partitioning
+	idx_t* vtxdist = NULL; // Vertex distribution among processor
+	const int CPUNUM = 4;  // Number of CPU
+	int vertexPerCpu;
+	MPI_Comm comm;
+
+	idx_t npes, mype;
+
 
 	int i;
 	int temp;
@@ -86,7 +95,7 @@ int main(int argc, char *argv[])
 	}
 
 	// Additional parameters - all default here
-	options = (idx_t*) (10 * sizeof(idx_t));
+	options = (idx_t*) malloc(10 * sizeof(idx_t));
 	for(i = 0; i < 10; i++)
 	{
 		options[i] = 0;
@@ -94,6 +103,36 @@ int main(int argc, char *argv[])
 
 	part = (idx_t*) malloc(nodesCount * sizeof(idx_t));
 
+	// Prepare vertex distribution on each cpu
+	vertexPerCpu = nodesCount / CPUNUM;
+	vtxdist = (idx_t*) malloc((CPUNUM + 1) * sizeof(idx_t));
+	vtxdist[0] = 0;
+	vtxdist[1] = vertexPerCpu;
+	vtxdist[2] = 2 * vertexPerCpu;
+	vtxdist[3] = 3 * vertexPerCpu;
+	vtxdist[4] = nodesCount;
+
+	// Not sure if needed, copy from example
+	MPI_Init(&argc, &argv);
+	MPI_Comm_dup(MPI_COMM_WORLD, &comm);
+	gkMPI_Comm_size(comm, &npes);
+	gkMPI_Comm_rank(comm, &mype);
+
+	// Call function to partition
+	ParMETIS_V3_PartKway(vtxdist, xadj, adjncy, vwgt, adjwgt, &wgtflag, &numflag, &ncon, &nparts, tpwgts, ubvec, 
+          options, &edgecut, part, &comm);
+	
+	// Viết kết quả ra file
+	for(i=0;i<nodesCount; i++)
+	{
+		fprintf(outputFile, "%d %d\n", i, part[i]);
+	}
+
+	fclose(outputFile);
+
+	
+	MPI_Comm_free(&comm);
+	MPI_Finalize();
 
   //idx_t i, j, npes, mype, optype, nparts, adptf, options[10];
   //idx_t *part=NULL, *sizes=NULL;
