@@ -108,7 +108,8 @@ namespace TestReadTwitterData
                                 rightbound++;
                             }
 
-                            actualEdges += right - left - 1;
+                            // We have added some edges so need to update actual edges
+                            actualEdges += right - left - 1; 
                         }
                         else
                         {
@@ -165,7 +166,18 @@ namespace TestReadTwitterData
             //reader.Close();
             //reader.Dispose();
 
-            bool b = 6 - 4 > 1;
+            //bool b = 6 - 4 > 1;
+
+            string adjncyPath = @"E:\Lab\Triangles data\ajdncy.txt";
+            StreamReader reader = new StreamReader(adjncyPath);
+
+            int count = 0;
+            while (!reader.EndOfStream)
+            {
+                reader.ReadLine();
+                count++;
+            }
+            reader.Close();
         }
 
     }
