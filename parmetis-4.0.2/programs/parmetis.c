@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
 	
 	idx_t* xadj;	// Restrict begins and ends of adjacent vertex
 	idx_t* adjncy;	// List of adjacent vertices
-	idx_t* vwgt = NULL;
-	idx_t* adjwgt = NULL;
+	idx_t* vwgt = NULL;		// Weight on vertex
+	idx_t* adjwgt = NULL;	// Weight on adjacent vertex list
 	idx_t wgtflag = 0;	// No weight
 	idx_t numflag = 0;	// Numbering scheme - start from 0
 	idx_t ncon = 1;		// Number of weights each vertex has
@@ -112,11 +112,18 @@ int main(int argc, char *argv[])
 	vtxdist[3] = 3 * vertexPerCpu;
 	vtxdist[4] = nodesCount;
 
+	//// Temp solution, each adjacent vertex has the weight of 1
+	//adjwgt = (idx_t*) malloc(edgesCount * sizeof(idx_t));
+	//for(i = 0; i < edgesCount; i++)
+	//{
+	//	adjwgt[i] = 1;
+	//}
+
 	// Not sure if needed, copy from example
 	MPI_Init(&argc, &argv);
 	MPI_Comm_dup(MPI_COMM_WORLD, &comm);
-	gkMPI_Comm_size(comm, &npes);
-	gkMPI_Comm_rank(comm, &mype);
+	/*gkMPI_Comm_size(comm, &npes);
+	gkMPI_Comm_rank(comm, &mype);*/
 
 	// Call function to partition
 	ParMETIS_V3_PartKway(vtxdist, xadj, adjncy, vwgt, adjwgt, &wgtflag, &numflag, &ncon, &nparts, tpwgts, ubvec, 
