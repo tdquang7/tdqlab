@@ -56,7 +56,7 @@ namespace TestReadTwitterData
                 // Header
                 string line;
 
-                // First two line keep for debug info
+                // First two lines kept for debug info
                 line = reader.ReadLine();
                 line = reader.ReadLine();
 
@@ -75,27 +75,48 @@ namespace TestReadTwitterData
                 line = reader.ReadLine(); // Forth line just the table header
                                 
                 string lastId = "";
-                int count = 0;
+                int rightbound = 0;
+                int count = 0; // Counting to ensure generate equals to nodesNumber
 
                 for (int i = 0; i < edgesNumber; i++)
                 {
                     line = reader.ReadLine(); // Format: SourceId \t DestId
                     parts = line.Split(new string[] { TAB }, StringSplitOptions.None);
                     string id = parts[0];
-                    string destId = parts[1];
+                    string destId = parts[1];                   
 
                     if (id != lastId) // Change id occurs
                     {
-                        lastId = id;
+                        if (lastId == "") lastId = "0"; // Lazy, short style
 
-                        xadjWriter.Write(i + " "); // Not id but i, yes!
-                        count++;
+                        int left = int.Parse(lastId);
+                        int right = int.Parse(id);
+
+                        if (right - left > 1) // There are vertices skipped
+                        {
+                            xadjWriter.Write(rightbound + " "); // Close previous                            
+                            rightbound++;
+
+                            for (int j = left + 1; j < right; j++)
+                            {
+                                xadjWriter.Write(rightbound + " ");                               
+
+                                adjncyWriter.Write(j + " ");
+                                rightbound++;
+                            }                            
+                        }
+
+                        lastId = id;
+                        xadjWriter.Write(rightbound + " "); 
+                        count+= right - left;
                     }
 
-                    adjncyWriter.Write(destId + " ");  
+                    adjncyWriter.Write(destId + " ");
+                    rightbound++;
                 }
 
-                infoWriter.WriteLine(count);
+                // The rest of nodes, not check yet
+                infoWriter.WriteLine(nodesNumber);
                 infoWriter.WriteLine(edgesNumber);
                
                 reader.Close();
