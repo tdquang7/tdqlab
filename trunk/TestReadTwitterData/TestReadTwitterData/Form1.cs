@@ -35,6 +35,86 @@ namespace TestReadTwitterData
             progressBar1.Value = e.ProgressPercentage;
         }
 
+
+        /// <summary>
+        /// Transform input, add missing edges
+        /// </summary>
+        void TransformInput(object sender, DoWorkEventArgs e)
+        {
+            const string SPACE = " ";
+            const string TAB = "\t";
+            string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1.txt";            
+            string newInputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            StreamReader reader = new StreamReader(inputPath);
+            StreamWriter writer = new StreamWriter(newInputPath);
+
+            // Header
+            string line;
+
+            // First two lines kept for debug info
+            line = reader.ReadLine(); 
+            line = reader.ReadLine(); 
+
+            // Third line show how many nodes and edges
+            line = reader.ReadLine(); // Formar: "# Nodes: x Edges: y". Need x and y
+
+            // Extract x and y                
+            string[] parts = line.Split(new string[] { SPACE }, StringSplitOptions.None);
+            int nodesNumber = int.Parse(parts[2]);
+            int edgesNumber = int.Parse(parts[4]);
+
+            line = reader.ReadLine(); // Forth line just the table header
+
+            string lastId = "";
+            int actualEdges = edgesNumber;
+
+            for (int i = 0; i < edgesNumber; i++)
+            {
+                line = reader.ReadLine(); // Format: SourceId \t DestId
+                writer.WriteLine(line);
+
+                parts = line.Split(new string[] { TAB }, StringSplitOptions.None);
+                string id = parts[0];
+                string destId = parts[1];
+                
+
+                if (lastId != id)
+                {
+                    if (lastId == "")
+                    {
+                        lastId = "0";
+                    }
+
+                    int left = int.Parse(lastId);
+                    int right = int.Parse(id);
+
+                    if ((right - left) > 1) // There are vertices skipped
+                    {
+                        for (int j = left + 1; j < right; j++)
+                        {
+                            writer.WriteLine(j + TAB + j);
+                        }
+
+                        actualEdges += right - left - 1;
+                    }
+
+                    lastId = id;
+                }
+            }            
+
+            reader.Close();
+            writer.Close();
+
+            string infoPath = @"E:\Lab\Triangles data\info.txt";
+            StreamWriter infoWriter = new StreamWriter(infoPath);
+
+            infoWriter.WriteLine(nodesNumber);
+            infoWriter.WriteLine(actualEdges);
+
+            infoWriter.Close();
+        }
+
+
         void backgroundGenerateParMetisInput(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -43,96 +123,51 @@ namespace TestReadTwitterData
                 e.Cancel = true;
             else
             {
-                string inputFile = @"E:\Lab\Triangles data\soc-LiveJournal1.txt";
+                const string SPACE = " ";
+                const string TAB = "\t";
+
+                string inputFile = @"E:\Lab\Triangles data\soc-LiveJournal1_New.txt";
                 string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
                 string adjncyPath = @"E:\Lab\Triangles data\ajdncy.txt";
                 string infoPath = @"E:\Lab\Triangles data\info.txt";
-                string vertexPath = @"E:\Lab\Triangles data\vertexList.txt";
 
                 StreamReader reader = new StreamReader(inputFile);
                 StreamWriter xadjWriter = new StreamWriter(xadjPath);
                 StreamWriter adjncyWriter = new StreamWriter(adjncyPath);
-                StreamWriter infoWriter = new StreamWriter(infoPath);
-                StreamWriter vertexWriter = new StreamWriter(vertexPath);
 
-                // Header
+                
+                StreamReader infoReader = new StreamReader(infoPath);
+                int nodesNumber = int.Parse(infoReader.ReadLine());
+                int edgesNumber = int.Parse(infoReader.ReadLine());
+
                 string line;
+                
+                string lastId = "0";
+                xadjWriter.WriteLine(0);
 
-                // First two lines kept for debug info
-                line = reader.ReadLine();
-                line = reader.ReadLine();
-
-                // Third line show how many nodes and edges
-                line = reader.ReadLine(); // Formar: "# Nodes: x Edges: y". Need x and y
-
-                string SPACE = " ";
-                string TAB = "\t";
-
-                // Extract x and y                
-                string[] parts = line.Split(new string[] { SPACE }, StringSplitOptions.None);
-                int nodesNumber = int.Parse(parts[2]);
-                int edgesNumber = int.Parse(parts[4]);                
-
-                line = reader.ReadLine(); // Forth line just the table header
-
-                string lastId = "";
                 int rightbound = 0;
-                int actualEdges = edgesNumber;
-
+                
                 for (int i = 0; i < edgesNumber; i++)
                 {
                     line = reader.ReadLine(); // Format: SourceId \t DestId
-                    parts = line.Split(new string[] { TAB }, StringSplitOptions.None);
+                    string[] parts = line.Split(new string[] { TAB }, StringSplitOptions.None);
                     string id = parts[0];
                     string destId = parts[1];
 
                     if (id != lastId) // Change id occurs
                     {
-                        if (lastId == "")
-                        {
-                            lastId = "0"; 
-                        }
-
-                        int left = int.Parse(lastId);
-                        int right = int.Parse(id);
-
-                        if ((right - left) > 1) // There are vertices skipped
-                        {
-                            xadjWriter.WriteLine(rightbound); // Close previous   
-                            rightbound++;
-
-                            for (int j = left + 1; j < right; j++)
-                            {
-                                xadjWriter.WriteLine(rightbound);
-                                adjncyWriter.WriteLine(j);
-                                rightbound++;
-                            }
-
-                            // We have added some edges so need to update actual edges
-                            actualEdges += right - left - 1; 
-                        }
-                        else
-                        {
-                            xadjWriter.WriteLine(rightbound);                      
-                        }
-
-                        lastId = id;                        
+                        xadjWriter.WriteLine(rightbound);
                     }
-
+                   
                     adjncyWriter.WriteLine(destId);
                     rightbound++;
                 }
 
                 xadjWriter.WriteLine(rightbound);
-
-                infoWriter.WriteLine(nodesNumber);
-                infoWriter.WriteLine(actualEdges);
                
                 reader.Close();
                 xadjWriter.Close();
                 adjncyWriter.Close();
-                infoWriter.Close();
-                vertexWriter.Close();
             }
         }
 
@@ -172,11 +207,15 @@ namespace TestReadTwitterData
             StreamReader reader = new StreamReader(adjncyPath);
 
             int count = 0;
-            while (!reader.EndOfStream)
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < 1000; i++)
             {
-                reader.ReadLine();
-                count++;
+                builder.Append(reader.ReadLine() + "\r\n");
             }
+
+            txtContent.Text = builder.ToString();
+
             reader.Close();
         }
 
