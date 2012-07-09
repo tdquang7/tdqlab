@@ -104,27 +104,19 @@ int main(int argc, char *argv[])
 	part = (idx_t*) malloc(nodesCount * sizeof(idx_t));
 
 	// Prepare vertex distribution on each cpu
-	vertexPerCpu = nodesCount / 2;
-	vtxdist = (idx_t*) malloc((2 + 1) * sizeof(idx_t));
+	vertexPerCpu = nodesCount / 4;
+	vtxdist = (idx_t*) malloc((5) * sizeof(idx_t));
 	vtxdist[0] = 0;
 	vtxdist[1] = vertexPerCpu;
-	vtxdist[2] = nodesCount;
-	//vtxdist[2] = 2 * vertexPerCpu;
-	//vtxdist[3] = 3 * vertexPerCpu;
-	//vtxdist[4] = nodesCount;
-
-	//// Temp solution, each adjacent vertex has the weight of 1
-	//adjwgt = (idx_t*) malloc(edgesCount * sizeof(idx_t));
-	//for(i = 0; i < edgesCount; i++)
-	//{
-	//	adjwgt[i] = 1;
-	//}
-
+	vtxdist[2] = 2 * vertexPerCpu;
+	vtxdist[3] = 3 * vertexPerCpu;
+	vtxdist[4] = nodesCount;
+		
 	// Not sure if needed, copy from example
 	MPI_Init(&argc, &argv);
 	MPI_Comm_dup(MPI_COMM_WORLD, &comm);
-	/*gkMPI_Comm_size(comm, &npes);
-	gkMPI_Comm_rank(comm, &mype);*/
+	gkMPI_Comm_size(comm, &npes);
+	gkMPI_Comm_rank(comm, &mype);
 
 
 	// Call function to partition

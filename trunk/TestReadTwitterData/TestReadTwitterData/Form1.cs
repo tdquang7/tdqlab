@@ -213,7 +213,7 @@ namespace TestReadTwitterData
             //bool b = 6 - 4 > 1;
             //---------
 
-            string adjncyPath = @"E:\Lab\Triangles data\numeric2screen";
+            string adjncyPath = @"E:\Lab\Triangles data\MROutput.txt";
             StreamReader reader = new StreamReader(adjncyPath);
 
             int count = 0;
@@ -226,7 +226,11 @@ namespace TestReadTwitterData
 
             txtContent.Text = builder.ToString();
 
-            //reader.Close();
+            reader.Close();
+            //------------------------------------
+
+            //GenerateForMapReduce();
+            //MessageBox.Show("Completed");
         }
 
 
@@ -245,9 +249,10 @@ namespace TestReadTwitterData
             StreamWriter writer = new StreamWriter(outputPath);
             string lastId = "0";
             List<string> friends = new List<string>();
+
             // Get names from screen to name database
             string  line = namesReader.ReadLine();
-            string someid, name; Split(line, " ", out someid, out name);
+            string someid, name; Split(line, " ", out someid, out name); // Don't care about the id in this line
 
             for (int i = 0; i < 69532892; i++) // Đã biết trước số cạnh
             {
@@ -261,7 +266,6 @@ namespace TestReadTwitterData
                     writer.WriteLine("Name: " + name);
                     writer.WriteLine("Email: " + name + "@" + emailHosts[ra.Next(emailHosts.Count)]);
                     writer.WriteLine("Birthday: " + GenerateBirthday().ToShortDateString());
-                    writer.WriteLine();
 
                     // Push friendList, all friends in one line, seperated by blank space
                     writer.WriteLine(friends.Count + " friends");
@@ -295,7 +299,7 @@ namespace TestReadTwitterData
         {
             string[] parts = source.Split(new string[] { seperator }, StringSplitOptions.None);
             part1 = parts[0];
-            part2 = parts[2];
+            part2 = parts[1];
         }
 
 
