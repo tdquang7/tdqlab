@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	idx_t wgtflag = 0;	// No weight
 	idx_t numflag = 0;	// Numbering scheme - start from 0
 	idx_t ncon = 1;		// Number of weights each vertex has
-	idx_t nparts = 6;	// Number of partitions
+	idx_t nparts = 4;	// Number of partitions
 	real_t* tpwgts = NULL; // Fraction of vertex weight that should be distributed each domain
 	real_t* ubvec = NULL;  // Imbalance tolerance for each vertex weight
 	idx_t* options = NULL; // Additional parameters
@@ -104,13 +104,14 @@ int main(int argc, char *argv[])
 	part = (idx_t*) malloc(nodesCount * sizeof(idx_t));
 
 	// Prepare vertex distribution on each cpu
-	vertexPerCpu = nodesCount / CPUNUM;
-	vtxdist = (idx_t*) malloc((CPUNUM + 1) * sizeof(idx_t));
+	vertexPerCpu = nodesCount / 2;
+	vtxdist = (idx_t*) malloc((2 + 1) * sizeof(idx_t));
 	vtxdist[0] = 0;
 	vtxdist[1] = vertexPerCpu;
-	vtxdist[2] = 2 * vertexPerCpu;
-	vtxdist[3] = 3 * vertexPerCpu;
-	vtxdist[4] = nodesCount;
+	vtxdist[2] = nodesCount;
+	//vtxdist[2] = 2 * vertexPerCpu;
+	//vtxdist[3] = 3 * vertexPerCpu;
+	//vtxdist[4] = nodesCount;
 
 	//// Temp solution, each adjacent vertex has the weight of 1
 	//adjwgt = (idx_t*) malloc(edgesCount * sizeof(idx_t));
@@ -124,6 +125,7 @@ int main(int argc, char *argv[])
 	MPI_Comm_dup(MPI_COMM_WORLD, &comm);
 	/*gkMPI_Comm_size(comm, &npes);
 	gkMPI_Comm_rank(comm, &mype);*/
+
 
 	// Call function to partition
 	ParMETIS_V3_PartKway(vtxdist, xadj, adjncy, vwgt, adjwgt, &wgtflag, &numflag, &ncon, &nparts, tpwgts, ubvec, 

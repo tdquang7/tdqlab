@@ -39,7 +39,7 @@ namespace TestReadTwitterData
         /// <summary>
         /// Transform input, add missing edges
         /// </summary>
-        void TransformInput(object sender, DoWorkEventArgs e)
+        void TransformInput()
         {
             const string SPACE = " ";
             const string TAB = "\t";
@@ -71,12 +71,10 @@ namespace TestReadTwitterData
             for (int i = 0; i < edgesNumber; i++)
             {
                 line = reader.ReadLine(); // Format: SourceId \t DestId
-                writer.WriteLine(line);
 
                 parts = line.Split(new string[] { TAB }, StringSplitOptions.None);
                 string id = parts[0];
-                string destId = parts[1];
-                
+                string destId = parts[1];                
 
                 if (lastId != id)
                 {
@@ -100,6 +98,8 @@ namespace TestReadTwitterData
 
                     lastId = id;
                 }
+
+                writer.WriteLine(line);
             }            
 
             reader.Close();
@@ -130,11 +130,12 @@ namespace TestReadTwitterData
                 string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
                 string adjncyPath = @"E:\Lab\Triangles data\ajdncy.txt";
                 string infoPath = @"E:\Lab\Triangles data\info.txt";
+                string vertexPath =  @"E:\Lab\Triangles data\vertex.txt";
 
                 StreamReader reader = new StreamReader(inputFile);
                 StreamWriter xadjWriter = new StreamWriter(xadjPath);
                 StreamWriter adjncyWriter = new StreamWriter(adjncyPath);
-
+                StreamWriter vertexWriter = new StreamWriter(vertexPath);
                 
                 StreamReader infoReader = new StreamReader(infoPath);
                 int nodesNumber = int.Parse(infoReader.ReadLine());
@@ -144,6 +145,7 @@ namespace TestReadTwitterData
                 
                 string lastId = "0";
                 xadjWriter.WriteLine(0);
+                vertexWriter.WriteLine("0");
 
                 int rightbound = 0;
                 
@@ -154,9 +156,11 @@ namespace TestReadTwitterData
                     string id = parts[0];
                     string destId = parts[1];
 
-                    if (id != lastId) // Change id occurs
+                    if (lastId != id) // Change id occurs
                     {
                         xadjWriter.WriteLine(rightbound);
+                        vertexWriter.WriteLine(id);
+                        lastId = id;
                     }
                    
                     adjncyWriter.WriteLine(destId);
@@ -168,6 +172,7 @@ namespace TestReadTwitterData
                 reader.Close();
                 xadjWriter.Close();
                 adjncyWriter.Close();
+                vertexWriter.Close();
             }
         }
 
@@ -190,8 +195,12 @@ namespace TestReadTwitterData
                 backgroundWorker1.CancelAsync();
         }
 
+        Random ra = new Random();
+
         private void btnCheckInfo_Click(object sender, EventArgs e)
         {
+            //TransformInput();
+
             //string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
             //StreamReader reader = new StreamReader(xadjPath);
 
@@ -202,8 +211,9 @@ namespace TestReadTwitterData
             //reader.Dispose();
 
             //bool b = 6 - 4 > 1;
+            //---------
 
-            string adjncyPath = @"E:\Lab\Triangles data\ajdncy.txt";
+            string adjncyPath = @"E:\Lab\Triangles data\numeric2screen";
             StreamReader reader = new StreamReader(adjncyPath);
 
             int count = 0;
@@ -216,8 +226,106 @@ namespace TestReadTwitterData
 
             txtContent.Text = builder.ToString();
 
-            reader.Close();
+            //reader.Close();
         }
 
+
+        void GenerateForMapReduce()
+        {
+            //List<string> interests = LoadList(@"E:\Lab\Triangles data\Interests.txt");
+            List<string> emailHosts = LoadList(@"E:\Lab\Triangles data\EmailHost.txt");
+
+            string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            StreamReader inputReader = new StreamReader(inputPath);
+
+            string namesPath = @"E:\Lab\Triangles data\numeric2screen";
+            StreamReader namesReader = new StreamReader(namesPath);
+
+            string outputPath = @"E:\Lab\Triangles data\MROutput.txt";
+            StreamWriter writer = new StreamWriter(outputPath);
+            string lastId = "0";
+            List<string> friends = new List<string>();
+            // Get names from screen to name database
+            string  line = namesReader.ReadLine();
+            string someid, name; Split(line, " ", out someid, out name);
+
+            for (int i = 0; i < 69532892; i++) // Đã biết trước số cạnh
+            {
+                line = inputReader.ReadLine();
+                string id, friendId; Split(line, "\t", out id, out friendId);
+
+                if (lastId != id) // Change to another person
+                {
+                    //* Push old things to output
+                    writer.WriteLine("ID: " + lastId);
+                    writer.WriteLine("Name: " + name);
+                    writer.WriteLine("Email: " + name + "@" + emailHosts[ra.Next(emailHosts.Count)]);
+                    writer.WriteLine("Birthday: " + GenerateBirthday().ToShortDateString());
+                    writer.WriteLine();
+
+                    // Push friendList, all friends in one line, seperated by blank space
+                    writer.WriteLine(friends.Count + " friends");
+                    for(int j = 0; j < friends.Count; j++)
+                        writer.Write(friends[j] + " ");
+
+                    // Put 2 blank lines to seperated between every person
+                    writer.WriteLine();
+                    writer.WriteLine();
+                    //----------------------------------------------------
+
+                    //* Get name for the new man
+                    line = namesReader.ReadLine();
+                    Split(line, " ", out someid, out name);
+
+                    // Reset friends list
+                    friends = new List<string>();
+
+                    lastId = id;
+                }
+
+                friends.Add(friendId);
+            }
+
+            inputReader.Close();
+            namesReader.Close();
+            writer.Close();
+        }
+
+        void Split(string source, string seperator, out string part1, out string part2)
+        {
+            string[] parts = source.Split(new string[] { seperator }, StringSplitOptions.None);
+            part1 = parts[0];
+            part2 = parts[2];
+        }
+
+
+        DateTime GenerateBirthday()
+        {
+            int currentYear = DateTime.Now.Year;
+            int year = currentYear - ra.Next(100); // NO more than 100 years old
+            int month = ra.Next(12) + 1;
+            int day = ra.Next(DateTime.DaysInMonth(year, month)) + 1;
+            DateTime birthDay = new DateTime(year, month, day);
+
+            return birthDay;
+        }
+
+
+        List<string> LoadList(string path)
+        {
+            StreamReader reader = new StreamReader(path);
+
+            List<string> list = new List<string>();
+
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                list.Add(line);
+            }
+
+            reader.Close();
+
+            return list;
+        }
     }
 }
