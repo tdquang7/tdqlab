@@ -14,7 +14,6 @@ namespace TestReadTwitterData
     {
         StreamReader _fractionReader = null;
 
-
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +24,7 @@ namespace TestReadTwitterData
             backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
             backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
 
-            txtOriginalData.Text = @"F:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            txtOriginalData.Text =   @"F:\Lab\Triangles data\soc-LiveJournal1_new.txt";
             txtToParMetisPath.Text = @"F:\Lab\Triangles data\soc-LiveJournal1_15000.txt";
         }
 
@@ -139,16 +138,21 @@ namespace TestReadTwitterData
                 string xadjPath = folder + "\\xadj.txt";
                 string adjncyPath = folder + "\\ajdncy.txt";
                 string infoPath = inputFile.Substring(0, inputFile.Length - 4) + "_info.txt";
+                string outInfoPath = folder + "\\info.txt";
                 string vertexPath =  folder + "\\vertex.txt";
 
                 StreamReader reader = new StreamReader(inputFile);
                 StreamWriter xadjWriter = new StreamWriter(xadjPath);
                 StreamWriter adjncyWriter = new StreamWriter(adjncyPath);
                 StreamWriter vertexWriter = new StreamWriter(vertexPath);
-                
+                StreamWriter outInfoWriter = new StreamWriter(outInfoPath);
+
                 StreamReader infoReader = new StreamReader(infoPath);
                 int nodesNumber = int.Parse(infoReader.ReadLine());
                 int edgesNumber = int.Parse(infoReader.ReadLine());
+
+                outInfoWriter.WriteLine(nodesNumber);
+                outInfoWriter.WriteLine(edgesNumber);
 
                 string line;
                 
@@ -182,6 +186,7 @@ namespace TestReadTwitterData
                 xadjWriter.Close();
                 adjncyWriter.Close();
                 vertexWriter.Close();
+                outInfoWriter.Close();
             }
         }
 
@@ -373,7 +378,7 @@ namespace TestReadTwitterData
                     lastId = sourceId;
                 }
 
-                int id = int.Parse(destId);
+                int id = int.Parse(sourceId);
 
                 if (id < maxNodeId) // Valid nodeId
                 {
