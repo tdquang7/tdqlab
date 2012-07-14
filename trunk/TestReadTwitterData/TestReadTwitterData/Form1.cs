@@ -12,6 +12,9 @@ namespace TestReadTwitterData
 {
     public partial class Form1 : Form
     {
+        StreamReader _fractionReader = null;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -21,11 +24,14 @@ namespace TestReadTwitterData
             backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundGenerateParMetisInput);
             backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
             backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
+
+            txtOriginalData.Text = @"F:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            txtToParMetisPath.Text = @"F:\Lab\Triangles data\soc-soc-LiveJournal1_15000.txt";
         }
 
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            btnGenerate.Enabled = true;
+            btnTransformParMetis.Enabled = true;
             btnCancel.Enabled = false;
             MessageBox.Show("Completed");
         }
@@ -37,9 +43,9 @@ namespace TestReadTwitterData
 
 
         /// <summary>
-        /// Transform input, add missing edges
+        /// Mormalize input, add missing edges
         /// </summary>
-        void TransformInput()
+        void NormalizeInput()
         {
             const string SPACE = " ";
             const string TAB = "\t";
@@ -126,11 +132,14 @@ namespace TestReadTwitterData
                 const string SPACE = " ";
                 const string TAB = "\t";
 
-                string inputFile = @"E:\Lab\Triangles data\soc-LiveJournal1_New.txt";
-                string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
-                string adjncyPath = @"E:\Lab\Triangles data\ajdncy.txt";
-                string infoPath = @"E:\Lab\Triangles data\info.txt";
-                string vertexPath =  @"E:\Lab\Triangles data\vertex.txt";
+                string inputFile = (string) e.Argument;
+                FileInfo file = new FileInfo(inputFile);
+                string folder = file.Directory.Name;
+
+                string xadjPath = folder + "xadj.txt";
+                string adjncyPath = folder + "ajdncy.txt";
+                string infoPath = folder + "info.txt";
+                string vertexPath =  folder + "vertex.txt";
 
                 StreamReader reader = new StreamReader(inputFile);
                 StreamWriter xadjWriter = new StreamWriter(xadjPath);
@@ -176,17 +185,20 @@ namespace TestReadTwitterData
             }
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
+        private void btnTransformParMetis_Click(object sender, EventArgs e)
         {
-            btnGenerate.Enabled = false;
+            btnTransformParMetis.Enabled = false;
             btnCancel.Enabled = true;
 
-            backgroundWorker1.RunWorkerAsync();            
+            string inputFile = txtToParMetisPath.Text;
+
+            backgroundWorker1.RunWorkerAsync(inputFile);            
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
+            if (_fractionReader == null)
+                _fractionReader.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -331,5 +343,140 @@ namespace TestReadTwitterData
 
             return list;
         }
+
+        /// <summary>
+        /// Shrink the database to use with ParMetis
+        /// </summary>
+        /// <param name="oldDatabasePath"></param>
+        /// <param name="newDataPath"></param>
+        /// <param name="recordCount">Number of nodes, should be bigger than 10.000 
+        /// Because if less than 10.000, ParMetis will use serial version of itself, which is
+        /// Metis
+        /// </param>
+        void GenerateSmallDatabase(string oldDatabasePath, string newDataPath, string newInfoPath, int maxNodeId)
+        {
+            StreamReader reader = new StreamReader(oldDatabasePath);
+            StreamWriter writer = new StreamWriter(newDataPath);
+            string lastId = "";
+            int nodesCount = 0;
+            int edgesCount = 0;
+
+            while (nodesCount != maxNodeId)
+            {
+                string line = reader.ReadLine();
+                string[] parts = line.Split(new string[] { "\t" }, StringSplitOptions.None);
+                string sourceId = parts[0];
+                string destId = parts[1];
+
+                if (lastId != sourceId)
+                {
+                    nodesCount++;
+                    lastId = sourceId;
+                }
+
+                int id = int.Parse(destId);
+
+                if (id < maxNodeId) // Valid nodeId
+                {
+                    edgesCount++;
+                    writer.WriteLine(line); // Write back the valid line
+                }
+
+            }
+
+            reader.Close();
+            writer.Close();
+
+            StreamWriter infoWriter = new StreamWriter(newInfoPath);
+            infoWriter.WriteLine(nodesCount);
+            infoWriter.WriteLine(edgesCount);
+            infoWriter.Close();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "All files (*.*)|*.*" ;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtFileToShowFractionData.Text = openFileDialog1.FileName;
+
+                if (_fractionReader != null)
+                {
+                    _fractionReader.Close();
+                    _fractionReader = null; // Reset it
+                }
+            }
+        }
+
+        
+
+        private void btnLoadData_Click(object sender, EventArgs e)
+        {
+            if (txtFileToShowFractionData.Text.Length == 0)
+                return;
+
+            if (txtLinesToShow.Text.Length == 0)
+            {
+                MessageBox.Show("How many lines do you want to load?");
+                return;
+            }
+
+
+            if (_fractionReader == null)
+            {
+                _fractionReader = new StreamReader(txtFileToShowFractionData.Text);
+            }
+
+            int linesCount = int.Parse(txtLinesToShow.Text);
+
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < linesCount; i++)
+            {
+                string line = _fractionReader.ReadLine();
+                builder.Append(line).Append("\r\n");
+            }
+
+            txtContent.Text += builder.ToString();
+        }
+
+        private void btnGenerateSmallerDatabase_Click(object sender, EventArgs e)
+        {
+            if (txtMaxNodes.Text.Length == 0)
+            {
+                MessageBox.Show("Please input number of maximum node!");
+                return;
+            }
+
+            int maxNodes = int.Parse(txtMaxNodes.Text);
+
+            string newDataPath = @"F:\Lab\Triangles data\soc-LiveJournal1_" + maxNodes + ".txt";
+            string newInfoPath = @"F:\Lab\Triangles data\soc-LiveJournal1_" + maxNodes + "_info.txt";
+            GenerateSmallDatabase(txtOriginalData.Text, newDataPath, newInfoPath, maxNodes);
+
+            MessageBox.Show("Data generation for small database done!");
+        }
+
+        private void btnOriginaDataBrowse_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "All files (*.*)|*.*";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtOriginalData.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void btnToParMetisPath_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "All files (*.*)|*.*";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtToParMetisPath.Text = openFileDialog1.FileName;
+            }
+        }
+
     }
 }
