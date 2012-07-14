@@ -19,10 +19,10 @@
 **************************************************************************/
 int main(int argc, char *argv[])
 {
-	char* infoPath = "E:\\Lab\\Triangles data\\info.txt";
-	char* xadjPath = "E:\\Lab\\Triangles data\\xadj.txt";
-	char* adjncyPath = "E:\\Lab\\Triangles data\\ajdncy.txt";
-	char* outputPath = "E:\\Lab\\Triangles data\\result.txt";
+	char* infoPath = "F:\\Lab\\Triangles data\\info.txt";
+	char* xadjPath = "F:\\Lab\\Triangles data\\xadj.txt";
+	char* adjncyPath = "F:\\Lab\\Triangles data\\ajdncy.txt";
+	char* outputPath = "F:\\Lab\\Triangles data\\result.txt";
 
 	FILE* infoFile = fopen(infoPath, "r");
 	FILE* xadjFile = fopen(xadjPath, "r");
@@ -117,13 +117,12 @@ int main(int argc, char *argv[])
 	MPI_Comm_dup(MPI_COMM_WORLD, &comm);
 	gkMPI_Comm_size(comm, &npes);
 	gkMPI_Comm_rank(comm, &mype);
-
-
+	
 	// Call function to partition
 	ParMETIS_V3_PartKway(vtxdist, xadj, adjncy, vwgt, adjwgt, &wgtflag, &numflag, &ncon, &nparts, tpwgts, ubvec, 
           options, &edgecut, part, &comm);
 	
-	// Viết kết quả ra file
+	//  Put output result to file
 	for(i=0;i<nodesCount; i++)
 	{
 		fprintf(outputFile, "%d %d\n", i, part[i]);
