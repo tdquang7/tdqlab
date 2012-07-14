@@ -26,7 +26,7 @@ namespace TestReadTwitterData
             backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
 
             txtOriginalData.Text = @"F:\Lab\Triangles data\soc-LiveJournal1_new.txt";
-            txtToParMetisPath.Text = @"F:\Lab\Triangles data\soc-soc-LiveJournal1_15000.txt";
+            txtToParMetisPath.Text = @"F:\Lab\Triangles data\soc-LiveJournal1_15000.txt";
         }
 
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -134,12 +134,12 @@ namespace TestReadTwitterData
 
                 string inputFile = (string) e.Argument;
                 FileInfo file = new FileInfo(inputFile);
-                string folder = file.Directory.Name;
+                string folder = file.Directory.FullName;
 
-                string xadjPath = folder + "xadj.txt";
-                string adjncyPath = folder + "ajdncy.txt";
-                string infoPath = folder + "info.txt";
-                string vertexPath =  folder + "vertex.txt";
+                string xadjPath = folder + "\\xadj.txt";
+                string adjncyPath = folder + "\\ajdncy.txt";
+                string infoPath = inputFile.Substring(0, inputFile.Length - 4) + "_info.txt";
+                string vertexPath =  folder + "\\vertex.txt";
 
                 StreamReader reader = new StreamReader(inputFile);
                 StreamWriter xadjWriter = new StreamWriter(xadjPath);
@@ -197,7 +197,7 @@ namespace TestReadTwitterData
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (_fractionReader == null)
+            if (_fractionReader != null)
                 _fractionReader.Close();
         }
 
@@ -248,7 +248,6 @@ namespace TestReadTwitterData
 
         void GenerateForMapReduce()
         {
-            //List<string> interests = LoadList(@"E:\Lab\Triangles data\Interests.txt");
             List<string> emailHosts = LoadList(@"E:\Lab\Triangles data\EmailHost.txt");
 
             string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
@@ -408,8 +407,6 @@ namespace TestReadTwitterData
                 }
             }
         }
-
-        
 
         private void btnLoadData_Click(object sender, EventArgs e)
         {
