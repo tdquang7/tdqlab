@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	idx_t edgecut;
 	idx_t* part = NULL;	   // Result of partitioning
 	idx_t* vtxdist = NULL; // Vertex distribution among processor
-	const int CPUNUM = 4;  // Number of CPU
+	const int CPUNUM = 2;  // Number of CPU
 	int vertexPerCpu;
 	MPI_Comm comm;
 
@@ -95,8 +95,8 @@ int main(int argc, char *argv[])
 	}
 
 	// Additional parameters - all default here
-	options = (idx_t*) malloc(10 * sizeof(idx_t));
-	for(i = 0; i < 10; i++)
+	options = (idx_t*) malloc(3 * sizeof(idx_t));
+	for(i = 0; i < 3; i++)
 	{
 		options[i] = 0;
 	}
@@ -104,13 +104,13 @@ int main(int argc, char *argv[])
 	part = (idx_t*) malloc(nodesCount * sizeof(idx_t));
 
 	// Prepare vertex distribution on each cpu
-	vertexPerCpu = nodesCount / 4;
-	vtxdist = (idx_t*) malloc((5) * sizeof(idx_t));
-	vtxdist[0] = 0;
-	vtxdist[1] = vertexPerCpu;
-	vtxdist[2] = 2 * vertexPerCpu;
-	vtxdist[3] = 3 * vertexPerCpu;
-	vtxdist[4] = nodesCount;
+	vertexPerCpu = nodesCount / CPUNUM;
+	vtxdist = (idx_t*) malloc((CPUNUM + 1) * sizeof(idx_t));
+	
+	for(i = 0; i < CPUNUM + 1; i++)
+	{
+		vtxdist[i] = i * vertexPerCpu;
+	}
 		
 	// Not sure if needed, copy from example
 	MPI_Init(&argc, &argv);
@@ -129,7 +129,6 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(outputFile);
-
 	
 	MPI_Comm_free(&comm);
 	MPI_Finalize();
@@ -142,27 +141,10 @@ int main(int argc, char *argv[])
   //idx_t numflag=0, wgtflag=0, ndims, edgecut;
   //char xyzfilename[8192];
 
-  //MPI_Init(&argc, &argv);
-  //MPI_Comm_dup(MPI_COMM_WORLD, &comm);
-  //gkMPI_Comm_size(comm, &npes);
-  //gkMPI_Comm_rank(comm, &mype);
-
-  //if (argc != 8) {
-  //  if (mype == 0)
-  //    printf("Usage: %s <graph-file> <op-type> <nparts> <adapth-factor> <ipc2redist> <dbglvl> <seed>\n", argv[0]);
-
-  //  MPI_Finalize();
-  //  exit(0);
-  //}
-
   //optype     = atoi(argv[2]);
   //nparts     = atoi(argv[3]);
   //adptf      = atoi(argv[4]);
   //ipc2redist = atof(argv[5]);
-
-  //options[0] = 1;
-  //options[PMV3_OPTION_DBGLVL] = atoi(argv[6]);
-  //options[PMV3_OPTION_SEED]   = atoi(argv[7]);
 
   //if (mype == 0) 
   //  printf("reading file: %s\n", argv[1]);
@@ -174,10 +156,6 @@ int main(int argc, char *argv[])
   //rset(graph.ncon, 1.05, ubvec);
   //tpwgts = rmalloc(nparts*graph.ncon, "tpwgts");
   //rset(nparts*graph.ncon, 1.0/(real_t)nparts, tpwgts);
-
-  ///*
-  //ChangeToFortranNumbering(graph.vtxdist, graph.xadj, graph.adjncy, mype, npes); 
-  //numflag = 1;
 
   //nvtxs = graph.vtxdist[mype+1]-graph.vtxdist[mype];
   //nedges = graph.xadj[nvtxs];
@@ -204,77 +182,11 @@ int main(int argc, char *argv[])
   //        options, &edgecut, part, &comm);
   //    WritePVector(argv[1], graph.vtxdist, part, MPI_COMM_WORLD); 
   //    break;
-  //  case 2:
-  //    wgtflag = 3;
-  //    options[PMV3_OPTION_PSR] = PARMETIS_PSR_COUPLED;
-  //    ParMETIS_V3_RefineKway(graph.vtxdist, graph.xadj, graph.adjncy, graph.vwgt, 
-  //        graph.adjwgt, &wgtflag, &numflag, &graph.ncon, &nparts, tpwgts, ubvec, 
-  //        options, &edgecut, part, &comm);
-  //    WritePVector(argv[1], graph.vtxdist, part, MPI_COMM_WORLD); 
-  //    break;
-  //  case 3:
-  //    options[PMV3_OPTION_PSR] = PARMETIS_PSR_COUPLED;
-  //    graph.vwgt = ismalloc(graph.nvtxs, 1, "main: vwgt");
-  //    if (npes > 1) {
-  //      AdaptGraph(&graph, adptf, comm);
-  //    }
-  //    else {
-  //      wgtflag = 3;
-  //      ParMETIS_V3_PartKway(graph.vtxdist, graph.xadj, graph.adjncy, graph.vwgt, 
-  //          graph.adjwgt, &wgtflag, &numflag, &graph.ncon, &nparts, tpwgts, 
-  //          ubvec, options, &edgecut, part, &comm);
-
-  //      printf("Initial partitioning with edgecut of %"PRIDX"\n", edgecut);
-  //      for (i=0; i<graph.ncon; i++) {
-  //        for (j=0; j<graph.nvtxs; j++) {
-  //          if (part[j] == i)
-  //            graph.vwgt[j*graph.ncon+i] = adptf; 
-  //          else
-  //            graph.vwgt[j*graph.ncon+i] = 1; 
-  //        }
-  //      }
-  //    }
-
-  //    wgtflag = 3;
-  //    ParMETIS_V3_AdaptiveRepart(graph.vtxdist, graph.xadj, graph.adjncy, graph.vwgt, 
-  //        NULL, graph.adjwgt, &wgtflag, &numflag, &graph.ncon, &nparts, tpwgts, ubvec, 
-	 // &ipc2redist, options, &edgecut, part, &comm);
-  //    break;
-  //  case 4: 
-  //    ParMETIS_V3_NodeND(graph.vtxdist, graph.xadj, graph.adjncy, &numflag, options, 
-  //        part, sizes, &comm);
-  //    /* WriteOVector(argv[1], graph.vtxdist, part, comm);   */
-  //    break;
-
-  //  case 5: 
-  //    ParMETIS_SerialNodeND(graph.vtxdist, graph.xadj, graph.adjncy, &numflag, options, 
-  //        part, sizes, &comm);
-  //    /* WriteOVector(argv[1], graph.vtxdist, part, comm);  */ 
-  //    printf("%"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX"\n", sizes[0], sizes[1], sizes[2], sizes[3], sizes[4], sizes[5], sizes[6]);
-  //    break;
-  //  case 11: 
-  //    /* TestAdaptiveMETIS(graph.vtxdist, graph.xadj, graph.adjncy, part, options, adptf, comm); */
-  //    break;
-  //  case 20: 
-  //    wgtflag = 3;
-  //    ParMETIS_V3_PartGeomKway(graph.vtxdist, graph.xadj, graph.adjncy, graph.vwgt, 
-  //        graph.adjwgt, &wgtflag, &numflag, &ndims, xyz, &graph.ncon, &nparts, 
-  //        tpwgts, ubvec, options, &edgecut, part, &comm);
-  //    break;
-  //  case 21: 
-  //    ParMETIS_V3_PartGeom(graph.vtxdist, &ndims, xyz, part, &comm);
-  //    break;
-  //}
 
   ///* printf("%"PRIDX" %"PRIDX"\n", isum(nvtxs, graph.xadj, 1), isum(nedges, graph.adjncy, 1)); */
 
   //gk_free((void **)&part, &sizes, &tpwgts, &graph.vtxdist, &graph.xadj, &graph.adjncy, 
   //       &graph.vwgt, &graph.adjwgt, &xyz, LTERM);
-
-  //MPI_Comm_free(&comm);
-
-  //MPI_Finalize();
-
   return 0;
 }
 
