@@ -34,7 +34,7 @@
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCheckInfo = new System.Windows.Forms.Button();
+            this.btnForMapReduce = new System.Windows.Forms.Button();
             this.btnGenerateSmallerDatabase = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMaxNodes = new System.Windows.Forms.TextBox();
@@ -47,14 +47,14 @@
             this.txtLinesToShow = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnToParMetisPath = new System.Windows.Forms.Button();
+            this.txtToParMetisPath = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnOriginaDataBrowse = new System.Windows.Forms.Button();
             this.txtOriginalData = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnToParMetisPath = new System.Windows.Forms.Button();
-            this.txtToParMetisPath = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,15 +107,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnCheckInfo
+            // btnForMapReduce
             // 
-            this.btnCheckInfo.Location = new System.Drawing.Point(294, 93);
-            this.btnCheckInfo.Name = "btnCheckInfo";
-            this.btnCheckInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnCheckInfo.TabIndex = 4;
-            this.btnCheckInfo.Text = "Check info";
-            this.btnCheckInfo.UseVisualStyleBackColor = true;
-            this.btnCheckInfo.Click += new System.EventHandler(this.btnCheckInfo_Click);
+            this.btnForMapReduce.Location = new System.Drawing.Point(294, 93);
+            this.btnForMapReduce.Name = "btnForMapReduce";
+            this.btnForMapReduce.Size = new System.Drawing.Size(98, 23);
+            this.btnForMapReduce.TabIndex = 4;
+            this.btnForMapReduce.Text = "For MapReduce";
+            this.btnForMapReduce.UseVisualStyleBackColor = true;
+            this.btnForMapReduce.Click += new System.EventHandler(this.btnForMapReduce_Click);
             // 
             // btnGenerateSmallerDatabase
             // 
@@ -235,13 +235,39 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.btnTransformParMetis);
             this.groupBox3.Controls.Add(this.btnCancel);
-            this.groupBox3.Controls.Add(this.btnCheckInfo);
+            this.groupBox3.Controls.Add(this.btnForMapReduce);
             this.groupBox3.Location = new System.Drawing.Point(381, 19);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(444, 138);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Transform data";
+            // 
+            // btnToParMetisPath
+            // 
+            this.btnToParMetisPath.Location = new System.Drawing.Point(346, 56);
+            this.btnToParMetisPath.Name = "btnToParMetisPath";
+            this.btnToParMetisPath.Size = new System.Drawing.Size(75, 23);
+            this.btnToParMetisPath.TabIndex = 14;
+            this.btnToParMetisPath.Text = "Browse...";
+            this.btnToParMetisPath.UseVisualStyleBackColor = true;
+            this.btnToParMetisPath.Click += new System.EventHandler(this.btnToParMetisPath_Click);
+            // 
+            // txtToParMetisPath
+            // 
+            this.txtToParMetisPath.Location = new System.Drawing.Point(99, 58);
+            this.txtToParMetisPath.Name = "txtToParMetisPath";
+            this.txtToParMetisPath.Size = new System.Drawing.Size(241, 20);
+            this.txtToParMetisPath.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "To ParMetis:";
             // 
             // btnOriginaDataBrowse
             // 
@@ -272,32 +298,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 61);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "To ParMetis:";
-            // 
-            // btnToParMetisPath
-            // 
-            this.btnToParMetisPath.Location = new System.Drawing.Point(346, 56);
-            this.btnToParMetisPath.Name = "btnToParMetisPath";
-            this.btnToParMetisPath.Size = new System.Drawing.Size(75, 23);
-            this.btnToParMetisPath.TabIndex = 14;
-            this.btnToParMetisPath.Text = "Browse...";
-            this.btnToParMetisPath.UseVisualStyleBackColor = true;
-            this.btnToParMetisPath.Click += new System.EventHandler(this.btnToParMetisPath_Click);
-            // 
-            // txtToParMetisPath
-            // 
-            this.txtToParMetisPath.Location = new System.Drawing.Point(99, 58);
-            this.txtToParMetisPath.Name = "txtToParMetisPath";
-            this.txtToParMetisPath.Size = new System.Drawing.Size(241, 20);
-            this.txtToParMetisPath.TabIndex = 13;
             // 
             // Form1
             // 
@@ -332,7 +332,7 @@
         private System.Windows.Forms.ToolStripProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnCheckInfo;
+        private System.Windows.Forms.Button btnForMapReduce;
         private System.Windows.Forms.Button btnGenerateSmallerDatabase;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtMaxNodes;

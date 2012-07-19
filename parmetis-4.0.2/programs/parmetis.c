@@ -36,17 +36,17 @@ int main(int argc, char *argv[])
 	idx_t* adjncy;	// List of adjacent vertices
 	idx_t* vwgt = NULL;		// Weight on vertex
 	idx_t* adjwgt = NULL;	// Weight on adjacent vertex list
-	idx_t wgtflag = 0;	// No weight
-	idx_t numflag = 0;	// Numbering scheme - start from 0
-	idx_t ncon = 1;		// Number of weights each vertex has
-	idx_t nparts = 4;	// Number of partitions
-	real_t* tpwgts = NULL; // Fraction of vertex weight that should be distributed each domain
-	real_t* ubvec = NULL;  // Imbalance tolerance for each vertex weight
-	idx_t* options = NULL; // Additional parameters
+	idx_t wgtflag = 0;		// No weight
+	idx_t numflag = 0;		// Numbering scheme - start from 0
+	idx_t ncon = 1;			// Number of weights each vertex has
+	idx_t nparts = 2;		// Number of partitions
+	real_t* tpwgts = NULL;  // Fraction of vertex weight that should be distributed each domain
+	real_t* ubvec = NULL;   // Imbalance tolerance for each vertex weight
+	idx_t* options = NULL;  // Additional parameters
 	idx_t edgecut;
-	idx_t* part = NULL;	   // Result of partitioning
-	idx_t* vtxdist = NULL; // Vertex distribution among processor
-	const int CPUNUM = 2;  // Number of CPU
+	idx_t* part = NULL;	    // Result of partitioning
+	idx_t* vtxdist = NULL;  // Vertex distribution among processor
+	const int CPUNUM = 1;   // Number of CPU
 	int vertexPerCpu;
 	MPI_Comm comm;
 
@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
 	// Not sure if needed, copy from example
 	MPI_Init(&argc, &argv);
 	MPI_Comm_dup(MPI_COMM_WORLD, &comm);
-	gkMPI_Comm_size(comm, &npes);
+	gkMPI_Comm_size(comm, &npes); // Is npes the number of CPU???
 	gkMPI_Comm_rank(comm, &mype);
 	
 	// Call function to partition
@@ -137,21 +137,10 @@ int main(int argc, char *argv[])
   //idx_t *part=NULL, *sizes=NULL;
   //graph_t graph;
   //real_t ipc2redist, *xyz=NULL, *tpwgts=NULL, ubvec[MAXNCON];
-  //MPI_Comm comm;
-  //idx_t numflag=0, wgtflag=0, ndims, edgecut;
-  //char xyzfilename[8192];
-
-  //optype     = atoi(argv[2]);
-  //nparts     = atoi(argv[3]);
-  //adptf      = atoi(argv[4]);
-  //ipc2redist = atof(argv[5]);
-
+  
   //if (mype == 0) 
   //  printf("reading file: %s\n", argv[1]);
   //ParallelReadGraph(&graph, argv[1], comm);
-
-  ///* Remove the edges for testing */
-  ///*iset(graph.vtxdist[mype+1]-graph.vtxdist[mype]+1, 0, graph.xadj); */
 
   //rset(graph.ncon, 1.05, ubvec);
   //tpwgts = rmalloc(nparts*graph.ncon, "tpwgts");
@@ -162,31 +151,14 @@ int main(int argc, char *argv[])
   //printf("%"PRIDX" %"PRIDX"\n", isum(nvtxs, graph.xadj, 1), isum(nedges, graph.adjncy, 1));
   //*/
 
-
-  //if (optype >= 20) { 
-  //  sprintf(xyzfilename, "%s.xyz", argv[1]);
-  //  xyz = ReadTestCoordinates(&graph, xyzfilename, &ndims, comm);
-  //}
-
-  //if (mype == 0) 
-  //  printf("finished reading file: %s\n", argv[1]);
-  //
   //part  = ismalloc(graph.nvtxs, mype%nparts, "main: part");
   //sizes = imalloc(2*npes, "main: sizes");
 
-  //switch (optype) {
-  //  case 1: 
-  //    wgtflag = 3;
   //    ParMETIS_V3_PartKway(graph.vtxdist, graph.xadj, graph.adjncy, graph.vwgt, 
   //        graph.adjwgt, &wgtflag, &numflag, &graph.ncon, &nparts, tpwgts, ubvec, 
   //        options, &edgecut, part, &comm);
   //    WritePVector(argv[1], graph.vtxdist, part, MPI_COMM_WORLD); 
-  //    break;
 
-  ///* printf("%"PRIDX" %"PRIDX"\n", isum(nvtxs, graph.xadj, 1), isum(nedges, graph.adjncy, 1)); */
-
-  //gk_free((void **)&part, &sizes, &tpwgts, &graph.vtxdist, &graph.xadj, &graph.adjncy, 
-  //       &graph.vwgt, &graph.adjwgt, &xyz, LTERM);
   return 0;
 }
 
