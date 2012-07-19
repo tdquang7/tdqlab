@@ -42,7 +42,7 @@ namespace TestReadTwitterData
 
 
         /// <summary>
-        /// Mormalize input, add missing edges
+        /// Normalize input, add missing edges
         /// </summary>
         void NormalizeInput()
         {
@@ -118,7 +118,6 @@ namespace TestReadTwitterData
 
             infoWriter.Close();
         }
-
 
         void backgroundGenerateParMetisInput(object sender, DoWorkEventArgs e)
         {
@@ -214,55 +213,24 @@ namespace TestReadTwitterData
 
         Random ra = new Random();
 
-        private void btnCheckInfo_Click(object sender, EventArgs e)
+        private void btnForMapReduce_Click(object sender, EventArgs e)
         {
-            //TransformInput();
-
-            //string xadjPath = @"E:\Lab\Triangles data\xadj.txt";
-            //StreamReader reader = new StreamReader(xadjPath);
-
-            //string s = reader.ReadToEnd();
-            //string[] parts = s.Split(new string[] { " " }, StringSplitOptions.None);
-
-            //reader.Close();
-            //reader.Dispose();
-
-            //bool b = 6 - 4 > 1;
-            //---------
-
-            string adjncyPath = @"E:\Lab\Triangles data\MROutput.txt";
-            StreamReader reader = new StreamReader(adjncyPath);
-
-            int count = 0;
-            StringBuilder builder = new StringBuilder();
-
-            for (int i = 0; i < 1000; i++)
-            {
-                builder.Append(reader.ReadLine() + "\r\n");
-            }
-
-            txtContent.Text = builder.ToString();
-
-            reader.Close();
-            //------------------------------------
-
-            //GenerateForMapReduce();
-            //MessageBox.Show("Completed");
+            string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            GenerateForMapReduce(inputPath);
+            MessageBox.Show("Completed");
         }
 
-
-        void GenerateForMapReduce()
+        void GenerateForMapReduce(string inputPath)
         {
-            List<string> emailHosts = LoadList(@"E:\Lab\Triangles data\EmailHost.txt");
-
-            string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
             StreamReader inputReader = new StreamReader(inputPath);
-
+            List<string> emailHosts = LoadList(@"E:\Lab\Triangles data\EmailHost.txt");            
+            
             string namesPath = @"E:\Lab\Triangles data\numeric2screen";
             StreamReader namesReader = new StreamReader(namesPath);
 
             string outputPath = @"E:\Lab\Triangles data\MROutput.txt";
             StreamWriter writer = new StreamWriter(outputPath);
+
             string lastId = "0";
             List<string> friends = new List<string>();
 
@@ -270,7 +238,13 @@ namespace TestReadTwitterData
             string  line = namesReader.ReadLine();
             string someid, name; Split(line, " ", out someid, out name); // Don't care about the id in this line
 
-            for (int i = 0; i < 69532892; i++) // Đã biết trước số cạnh
+            // Skip 4 lines, which is the unnecessary header
+            inputReader.ReadLine();
+            inputReader.ReadLine();
+            inputReader.ReadLine();
+            inputReader.ReadLine();            
+
+            while (inputReader.EndOfStream) 
             {
                 line = inputReader.ReadLine();
                 string id, friendId; Split(line, "\t", out id, out friendId);
@@ -301,7 +275,7 @@ namespace TestReadTwitterData
                     friends = new List<string>();
 
                     lastId = id;
-                }
+                } // Finish change person
 
                 friends.Add(friendId);
             }
@@ -318,7 +292,6 @@ namespace TestReadTwitterData
             part2 = parts[1];
         }
 
-
         DateTime GenerateBirthday()
         {
             int currentYear = DateTime.Now.Year;
@@ -329,7 +302,6 @@ namespace TestReadTwitterData
 
             return birthDay;
         }
-
 
         List<string> LoadList(string path)
         {
