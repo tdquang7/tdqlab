@@ -48,8 +48,8 @@ namespace TestReadTwitterData
         {
             const string SPACE = " ";
             const string TAB = "\t";
-            string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1.txt";            
-            string newInputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            string inputPath = @"F:\Lab\Triangles data\soc-LiveJournal1.txt";            
+            string newInputPath = @"F:\Lab\Triangles data\soc-LiveJournal1_new.txt";
             StreamReader reader = new StreamReader(inputPath);
             StreamWriter writer = new StreamWriter(newInputPath);
 
@@ -110,7 +110,7 @@ namespace TestReadTwitterData
             reader.Close();
             writer.Close();
 
-            string infoPath = @"E:\Lab\Triangles data\info.txt";
+            string infoPath = @"F:\Lab\Triangles data\info.txt";
             StreamWriter infoWriter = new StreamWriter(infoPath);
 
             infoWriter.WriteLine(nodesNumber);
@@ -215,20 +215,22 @@ namespace TestReadTwitterData
 
         private void btnForMapReduce_Click(object sender, EventArgs e)
         {
-            string inputPath = @"E:\Lab\Triangles data\soc-LiveJournal1_new.txt";
+            string inputPath = txtOriginalData.Text;
             GenerateForMapReduce(inputPath);
             MessageBox.Show("Completed");
         }
 
         void GenerateForMapReduce(string inputPath)
         {
+            const bool IS_ORIGINAL = true; // Live Journal original database
+
             StreamReader inputReader = new StreamReader(inputPath);
-            List<string> emailHosts = LoadList(@"E:\Lab\Triangles data\EmailHost.txt");            
+            List<string> emailHosts = LoadList(@"F:\Lab\Triangles data\EmailHost.txt");            
             
-            string namesPath = @"E:\Lab\Triangles data\numeric2screen";
+            string namesPath = @"F:\Lab\Triangles data\numeric2screen";
             StreamReader namesReader = new StreamReader(namesPath);
 
-            string outputPath = @"E:\Lab\Triangles data\MROutput.txt";
+            string outputPath = @"F:\Lab\Triangles data\MROutput.txt";
             StreamWriter writer = new StreamWriter(outputPath);
 
             string lastId = "0";
@@ -238,13 +240,16 @@ namespace TestReadTwitterData
             string  line = namesReader.ReadLine();
             string someid, name; Split(line, " ", out someid, out name); // Don't care about the id in this line
 
-            // Skip 4 lines, which is the unnecessary header
-            inputReader.ReadLine();
-            inputReader.ReadLine();
-            inputReader.ReadLine();
-            inputReader.ReadLine();            
+            if (IS_ORIGINAL)
+            {
+                // Skip 4 lines, which is the unnecessary header
+                inputReader.ReadLine();
+                inputReader.ReadLine();
+                inputReader.ReadLine();
+                inputReader.ReadLine();
+            }
 
-            while (inputReader.EndOfStream) 
+            while (false == inputReader.EndOfStream) 
             {
                 line = inputReader.ReadLine();
                 string id, friendId; Split(line, "\t", out id, out friendId);
