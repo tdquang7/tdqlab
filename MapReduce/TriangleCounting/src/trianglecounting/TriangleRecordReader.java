@@ -24,6 +24,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
     FSDataInputStream _in;
     Text _key;
     NodeInfo _value;
+    long _fileSize;
     
     public TriangleRecordReader(Configuration conf, FileSplit split) throws IOException {
         _split = split;
@@ -31,30 +32,37 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
         _value = new NodeInfo();
     }
 
-    // Things to consider: inputsplit, why don't we read from inputsplit but from the file?
+    // Things to consider: inputsplit, why don't we read from inputsplit but 
+    // from the FileSplit?
     @Override
     public void initialize(InputSplit is, TaskAttemptContext tac) throws IOException, InterruptedException {
+        // Maybe need to get total number of nodes for progress
+        
         Path path = _split.getPath();
         Configuration conf = tac.getConfiguration(); 
         FileSystem fs = path.getFileSystem(conf);
+        _fileSize = fs.getFileStatus(path).getLen();
         _in = fs.open(path);
     }
 
     @Override
     public boolean nextKeyValue() throws IOException, InterruptedException {
-        
+        if (_in.getPos() < _fileSize) // Still can read
+        {
+            
+        }
         
         return true;
     }
 
     @Override
     public Text getCurrentKey() throws IOException, InterruptedException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _key;
     }
 
     @Override
     public NodeInfo getCurrentValue() throws IOException, InterruptedException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _value;
     }
 
     @Override
@@ -64,8 +72,6 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
 
     @Override
     public void close() throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        _in.close();
     }
-    
-    
 }
