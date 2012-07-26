@@ -48,6 +48,7 @@ public class NodeInfo implements WritableComparable {
         {
             out.writeUTF(ID);
             out.writeUTF(Name);
+            out.writeUTF(Email);
             
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
             out.writeUTF(sdf.format(Birthday));
@@ -60,39 +61,34 @@ public class NodeInfo implements WritableComparable {
         } 
         else if (Type == NEIGHBORINFO_REQUEST)
         {
+            out.writeUTF(ID);
             out.write(Degree);
         }
-        else if (Type == CANDIDATE)
+        else if (Type == CANDIDATE) // The key contain info
         {            
         }
-        else if(Type == OPENTRIAD)
+        else if(Type == OPENTRIAD) // The key contain info
         {            
         }
     }
 
     @Override
     public void readFields(DataInput in) throws IOException {
-        Type = in.readInt();
-        Email = in.readUTF();
+        Type = in.readInt();        
         
         if(Type == STRUCTURE)
         {
+            ID = in.readUTF();
             Name = in.readUTF();
-                        
+            Email = in.readUTF();            
+            
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
             try
             {
                 Birthday = sdf.parse(in.readUTF());
             }
             catch (ParseException ex)
-            {
-                
-            }
-            
-            int interestsCount = in.readInt();
-            for(int i = 0; i < interestsCount; i++)
-            {
-                Interests.add(in.readUTF());
+            {                
             }
             
             int friendsCount = in.readInt();
@@ -105,10 +101,10 @@ public class NodeInfo implements WritableComparable {
         {
             Degree = in.readInt();
         }
-        else if (Type == TWOPATH)
+        else if (Type == CANDIDATE) // The key contain info
         {            
         }
-        else if(Type == CANDIDATE)
+        else if(Type == OPENTRIAD) // The key contain info
         {            
         }
     }
