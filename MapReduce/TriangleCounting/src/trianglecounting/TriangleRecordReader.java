@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import org.apache.hadoop.conf.Configuration;
@@ -59,17 +60,17 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             final String BLANK = " ";
             String DATE_PATTERN = "d/m/yyyy";
             
-            String ID = StringHelper.GetValue2(_in.readLine(), COLON);
-            String Name = StringHelper.GetValue2(_in.readLine(), COLON);
-            String Email = StringHelper.GetValue2(_in.readLine(), COLON);
+            String id = StringHelper.GetValue2(_in.readLine(), COLON);
+            String name = StringHelper.GetValue2(_in.readLine(), COLON);
+            String email = StringHelper.GetValue2(_in.readLine(), COLON);
 
             //* Get the birthday
-            Date Birthday;
+            Date birthday = new Date();
             
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
             try
             {
-                Birthday = sdf.parse(StringHelper.GetValue2(_in.readLine(), COLON));
+                birthday = sdf.parse(StringHelper.GetValue2(_in.readLine(), COLON));
             }
             catch (ParseException ex)
             {                
@@ -77,20 +78,21 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             
             //* Get the list of friends
             String value = StringHelper.GetValue1(_in.readLine(), BLANK);
-            int friendsCount = Integer.parseInt(value);
-            String line = _in.readLine();
+            int friendsCount = Integer.parseInt(value); // Not use this number
+            
+            String line = _in.readLine(); 
             String[] parts = line.split(BLANK);
             List<String> friends = new ArrayList();
+            friends.addAll(Arrays.asList(parts));
             
-            for(int i = 0; i < parts.length; i++)
-            {
-                friends.add(parts[i]);
-            }
+            //* Turn info into key and value
+            _key = new Text(id);            
+            _value = new NodeInfo(id, name, email, birthday, friends);            
             
-            
+            return true;
         }
         
-        return true;
+        return false;
     }
 
     @Override

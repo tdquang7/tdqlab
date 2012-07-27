@@ -40,6 +40,19 @@ public class NodeInfo implements WritableComparable {
     //-------------------------------------------------
     public int Degree; // Used in neighbor info request            
     
+    public NodeInfo(String id, String name, String email, Date birth, List<String> friends)
+    {
+        ID = id;
+        Name = name;
+        Email = email;
+        Birthday = birth;
+        Friends = friends;
+    }
+
+    public NodeInfo() {
+        
+    }
+    
     @Override
     public void write(DataOutput out) throws IOException {
         out.write(Type);
