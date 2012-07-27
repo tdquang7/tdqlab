@@ -9,9 +9,24 @@ package utils;
  * @author tdquang
  */
 public class StringHelper {
-    public static String GetValue(String line, String seperator)
+    // Get value from format "Value: SomeDescriptions" or any seperator other than :
+    public static String GetValue1(String line, String seperator)
     {
         String value = "";
+        
+        String[] parts = line.split(seperator);
+        value = parts[0];        
+        
+        return value;
+    }
+    
+    // Get value from format "Key: Value" or any seperator other than :
+    public static String GetValue2(String line, String seperator)
+    {
+        String value = "";
+        
+        String[] parts = line.split(seperator);
+        value = parts[1];        
         
         return value;
     }
