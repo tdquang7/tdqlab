@@ -85,6 +85,8 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             List<String> friends = new ArrayList();
             friends.addAll(Arrays.asList(parts));
             
+            _in.readLine(); // Eat empty line
+            
             //* Turn info into key and value
             _key = new Text(id);            
             _value = new NodeInfo(id, name, email, birthday, friends);            
