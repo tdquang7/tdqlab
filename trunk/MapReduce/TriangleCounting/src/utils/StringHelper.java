@@ -30,4 +30,20 @@ public class StringHelper {
         
         return value;
     }
+    
+    public static KeyValueSplitResult SplitToKeyValue(String line, String seperator)
+    {
+        KeyValueSplitResult result = null;
+        
+        String[] parts = line.split(seperator);
+        
+        if (parts.length == 2)
+        {
+            result = new KeyValueSplitResult();
+            result.Key = parts[0];
+            result.Value = parts[1];
+        }
+        
+        return result;        
+    }
 }

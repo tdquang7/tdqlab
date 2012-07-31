@@ -9,6 +9,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.xml.crypto.Data;
@@ -31,6 +32,7 @@ public class NodeInfo implements WritableComparable {
     
     // Main structure of graph
     public String ID;
+    public int TriangleCount; // Number of triangles
     public String Name;
     public String Email;    
     public Date Birthday;
@@ -38,19 +40,31 @@ public class NodeInfo implements WritableComparable {
     public List<String> Friends;
             
     //-------------------------------------------------
-    public int Degree; // Used in neighbor info request            
+    public int Degree; // Used in neighbor info request      
+            
+    public NodeInfo()
+    {
+        ID = "";
+        Name = "";
+        Email = "";
+        Birthday = new Date(); // Current date
+        Friends = new ArrayList();
+        
+        Degree = 0;
+        TriangleCount = 0;
+    }
     
-    public NodeInfo(String id, String name, String email, Date birth, List<String> friends)
+    public NodeInfo(String id, int triangles, String name, String email, Date birth, List<String> friends)
     {
         ID = id;
+        TriangleCount = triangles;
         Name = name;
         Email = email;
         Birthday = birth;
         Friends = friends;
-    }
-
-    public NodeInfo() {
         
+        Degree = 0;
+        TriangleCount = 0;
     }
     
     @Override
@@ -60,6 +74,7 @@ public class NodeInfo implements WritableComparable {
         if(Type == STRUCTURE)
         {
             out.writeUTF(ID);
+            out.writeInt(TriangleCount);
             out.writeUTF(Name);
             out.writeUTF(Email);
             
@@ -77,11 +92,12 @@ public class NodeInfo implements WritableComparable {
             out.writeUTF(ID);
             out.write(Degree);
         }
-        else if (Type == CANDIDATE) // The key contain info
+        else if (Type == CANDIDATE) // The key already contain info
         {            
         }
-        else if(Type == OPENTRIAD) // The key contain info
-        {            
+        else if(Type == OPENTRIAD) // The key already contain info of edges
+        {           
+            out.writeUTF(ID); // ID of the node creating open triad
         }
     }
 
@@ -92,6 +108,7 @@ public class NodeInfo implements WritableComparable {
         if(Type == STRUCTURE)
         {
             ID = in.readUTF();
+            TriangleCount = in.readInt();
             Name = in.readUTF();
             Email = in.readUTF();            
             
@@ -118,7 +135,8 @@ public class NodeInfo implements WritableComparable {
         {            
         }
         else if(Type == OPENTRIAD) // The key contain info
-        {            
+        {       
+            ID = in.readUTF();
         }
     }
 
