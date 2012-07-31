@@ -24,6 +24,7 @@ public class NodeInfo implements WritableComparable {
     public static final int NEIGHBORINFO_REQUEST = 1;
     public static final int CANDIDATE = 2;
     public static final int OPENTRIAD = 4;    
+    public static final int TRIANGLE = 8;
     
     public static final String DATE_PATTERN = "d/m/yyyy";
     
@@ -99,6 +100,9 @@ public class NodeInfo implements WritableComparable {
         {           
             out.writeUTF(ID); // ID of the node creating open triad
         }
+        else if(Type == TRIANGLE)
+        {            
+        }
     }
 
     @Override
@@ -137,6 +141,9 @@ public class NodeInfo implements WritableComparable {
         else if(Type == OPENTRIAD) // The key contain info
         {       
             ID = in.readUTF();
+        }
+        else if(Type == TRIANGLE)
+        {            
         }
     }
 
