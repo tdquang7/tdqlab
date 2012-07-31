@@ -111,18 +111,38 @@ public class TriangleCounting {
     }    
        
     //--------------------------------------------------------------------------
-    // In phase two, try to 
+    // In phase two, try to find closing edge for 
     public static class MapPhase2 extends Mapper<Text, NodeInfo, Text, NodeInfo>{
         @ Override
 	protected void map (Text key, NodeInfo value, Context context) throws IOException, InterruptedException {
-            
+            // Just do the identity job
+            context.write(key, value);
         }
     }
     
     public static class ReducePhase2 extends Reducer<Text, NodeInfo, Text, NodeInfo>{
         @ Override
 	protected void reduce (Text key, Iterable <NodeInfo> values, Context context) throws IOException, InterruptedException {
+            int count = 0;
+            String nodeID = ""; // The node that we should count the ID
             
+            for(NodeInfo ni: values)            
+            {
+                count++;
+                
+                if (ni.Type == NodeInfo.OPENTRIAD)
+                {
+                    nodeID = ni.ID;
+                }
+            }
+            
+            if (count > 1)
+            {
+                // Found the triangle
+                NodeInfo newValue = new NodeInfo();
+                newValue.Type = NodeInfo.TRIANGLE;
+                context.write(new Text(nodeID), newValue);
+            }
         }
     }
     
@@ -130,5 +150,6 @@ public class TriangleCounting {
 
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
 }

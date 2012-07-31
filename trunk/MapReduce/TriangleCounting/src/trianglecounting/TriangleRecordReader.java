@@ -60,12 +60,23 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             final String BLANK = " ";
             String DATE_PATTERN = "d/m/yyyy";
             
-            String id = StringHelper.GetValue2(_in.readLine(), COLON);
+            
+            KeyValueSplitResult result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+            
+            String id = result.Value;
+            _key = new Text(result.Value);
+            
+            if(result.Key.contains("Key"))
+            {
+                // Read next line to get id
+                result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+                id = result.Value;
+            }            
             
             //* Check if contains triangle counting or not  
             int triangles = 0;
             String name = "";
-            KeyValueSplitResult result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+            result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
             
             if (result.Key.contains("Triangle"))
             {
@@ -102,8 +113,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             
             _in.readLine(); // Eat empty line
             
-            //* Turn info into key and value
-            _key = new Text(id);            
+            //* Turn info into key and value                     
             _value = new NodeInfo(id, triangles, name, email, birthday, friends);            
             
             return true;

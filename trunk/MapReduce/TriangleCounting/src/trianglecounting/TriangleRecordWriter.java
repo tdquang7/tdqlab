@@ -31,6 +31,7 @@ public class TriangleRecordWriter extends RecordWriter<Text, NodeInfo>
         final String DATE_PATTERN = "d/m/yyyy";
         final String BLANK = " ";
         
+        _writer.write("Key: " + key + LINEBREAK);
         _writer.write("ID: " + node.ID + LINEBREAK);
         _writer.write("Triangles count: " + node.TriangleCount + LINEBREAK);
         _writer.write("Name: " + node.Name + LINEBREAK);
