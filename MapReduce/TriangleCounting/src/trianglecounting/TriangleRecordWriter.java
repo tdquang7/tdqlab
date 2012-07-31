@@ -32,6 +32,7 @@ public class TriangleRecordWriter extends RecordWriter<Text, NodeInfo>
         final String BLANK = " ";
         
         _writer.write("ID: " + node.ID + LINEBREAK);
+        _writer.write("Triangles count: " + node.TriangleCount + LINEBREAK);
         _writer.write("Name: " + node.Name + LINEBREAK);
         _writer.write("Email: " + node.Email + LINEBREAK) ;
         
