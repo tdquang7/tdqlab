@@ -111,7 +111,7 @@ public class TriangleCounting {
     }    
        
     //--------------------------------------------------------------------------
-    // In phase two, try to find closing edge for 
+    // In phase two, try to find closing edge for open triad
     public static class MapPhase2 extends Mapper<Text, NodeInfo, Text, NodeInfo>{
         @ Override
 	protected void map (Text key, NodeInfo value, Context context) throws IOException, InterruptedException {
@@ -145,7 +145,39 @@ public class TriangleCounting {
             }
         }
     }
+    //---------------------------------------------------------------------------
     
+    // In phase two, try to find closing edge for open triad
+    public static class MapPhase3 extends Mapper<Text, NodeInfo, Text, NodeInfo>{
+        @ Override
+	protected void map (Text key, NodeInfo value, Context context) throws IOException, InterruptedException {
+            // Just do the identity job
+            context.write(key, value);
+        }
+    }
+    
+    public static class ReducePhase3 extends Reducer<Text, NodeInfo, Text, NodeInfo>{
+        @ Override
+	protected void reduce (Text key, Iterable <NodeInfo> values, Context context) throws IOException, InterruptedException {
+            NodeInfo structure = null;
+            
+            int count = 0; // Number of 
+            
+            for(NodeInfo ni: values)
+            {                
+                if (ni.Type == NodeInfo.STRUCTURE)
+                {
+                    structure = ni;
+                }
+                else
+                    count++;
+            }   
+            
+            structure.TriangleCount = count;
+            
+            context.write(key, structure);
+        }
+    }
     //--------------------------------------------------------------------------
 
     public static void main(String[] args) {
