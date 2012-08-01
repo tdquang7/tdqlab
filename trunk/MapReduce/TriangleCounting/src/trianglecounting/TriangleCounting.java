@@ -7,9 +7,14 @@ package trianglecounting;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 /**
  *
@@ -22,6 +27,7 @@ public class TriangleCounting {
 	protected void map (Text key, NodeInfo value, Context context) throws IOException, InterruptedException {
             context.write(key, value); // Write back the structure
             
+            // Create messages and send
             for(String friend: value.Friends)
             {
                 NodeInfo newValue = new NodeInfo();
@@ -53,7 +59,7 @@ public class TriangleCounting {
             
             // Keep the list of lower degree for open triad
             List<String> apex = new ArrayList();
-            List<Integer> degrees = new ArrayList();
+            List<Integer> degrees = new ArrayList(); // Corresponding degrees of apex
             
             // Generate candidate from higher degree node
             for(NodeInfo ni: values)
@@ -67,7 +73,7 @@ public class TriangleCounting {
                         newValue.Type = NodeInfo.CANDIDATE;
                         context.write(new Text(ni.ID + "," + key), newValue);
                     }
-                    else
+                    else // Store apex for creating open triad
                     {
                         apex.add(ni.ID);
                         degrees.add(ni.Degree);
@@ -180,8 +186,26 @@ public class TriangleCounting {
     }
     //--------------------------------------------------------------------------
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         // TODO code application logic here
+        Path inPath = new Path(args[0]);
+        Path outPath = new Path(args[1]);
         
+        Configuration conf = new Configuration();
+        Job job = new Job(conf, "Triangle counting");
+        job.setJarByClass(TriangleCounting.class);
+        job.setMapperClass(MapPhase1.class);
+        job.setReducerClass(ReducePhase1.class);
+                
+        job.setInputFormatClass(TriangleInputFormat.class);
+        job.setOutputFormatClass(TriangleOutputFormat.class);
+        
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(NodeInfo.class);
+        
+        FileInputFormat.addInputPath(job, inPath);
+        FileOutputFormat.setOutputPath(job, outPath);
+                
+        job.waitForCompletion(true);
     }
 }
