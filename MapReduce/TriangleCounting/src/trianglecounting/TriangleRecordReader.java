@@ -42,9 +42,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
     // Things to consider: inputsplit, why don't we read from inputsplit but 
     // from the FileSplit?
     @Override
-    public void initialize(InputSplit is, TaskAttemptContext tac) throws IOException, InterruptedException {
-        // Maybe need to get total number of nodes for progress???
-        
+    public void initialize(InputSplit is, TaskAttemptContext tac) throws IOException, InterruptedException {        
         Path path = _split.getPath();
         Configuration conf = tac.getConfiguration(); 
         FileSystem fs = path.getFileSystem(conf);
@@ -58,8 +56,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
         {
             final String COLON = ": ";
             final String BLANK = " ";
-            String DATE_PATTERN = "d/m/yyyy";
-            
+            final String DATE_PATTERN = "d/m/yyyy";            
             
             KeyValueSplitResult result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
             
@@ -134,7 +131,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
 
     @Override
     public float getProgress() throws IOException, InterruptedException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _in.getPos() / _fileSize;
     }
 
     @Override

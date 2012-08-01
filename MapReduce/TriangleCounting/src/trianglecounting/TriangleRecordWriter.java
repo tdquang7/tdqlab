@@ -51,6 +51,7 @@ public class TriangleRecordWriter extends RecordWriter<Text, NodeInfo>
 
     @Override
     public void close(TaskAttemptContext tac) throws IOException, InterruptedException {
+        _writer.flush();
         _writer.close();
     }
     
