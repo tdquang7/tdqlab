@@ -53,6 +53,7 @@ public class NodeInfo implements WritableComparable {
         
         Degree = 0;
         TriangleCount = 0;
+        Type=STRUCTURE;
     }
     
     public NodeInfo(String id, int triangles, String name, String email, Date birth, List<String> friends)
@@ -62,15 +63,18 @@ public class NodeInfo implements WritableComparable {
         Name = name;
         Email = email;
         Birthday = birth;
-        Friends = friends;
+        
+        Friends = new ArrayList();
+        Friends.addAll(friends);
         
         Degree = 0;
         TriangleCount = 0;
+        Type=STRUCTURE;
     }
     
     @Override
     public void write(DataOutput out) throws IOException {
-        out.write(Type);
+        out.writeInt(Type);
         
         if(Type == STRUCTURE)
         {
@@ -82,7 +86,7 @@ public class NodeInfo implements WritableComparable {
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
             out.writeUTF(sdf.format(Birthday));
                                    
-            out.write(Friends.size()); // Write out number of friend
+            out.writeInt(Friends.size()); // Write out number of friend
             for(String friend: Friends)
             {
                 out.writeUTF(friend);
@@ -126,6 +130,8 @@ public class NodeInfo implements WritableComparable {
             }
             
             int friendsCount = in.readInt();
+            Friends = new ArrayList();
+            
             for(int i = 0; i < friendsCount; i++)
             {
                 Friends.add(in.readUTF());
@@ -151,7 +157,7 @@ public class NodeInfo implements WritableComparable {
     public int compareTo(Object o) {
         NodeInfo other = (NodeInfo) o;
         
-        return this.Email.compareTo(other.Email);
+        return this.ID.compareTo(other.ID);
     }
     
 }

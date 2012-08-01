@@ -32,6 +32,5 @@ public class TriangleOutputFormat extends FileOutputFormat<Text, NodeInfo>{
         FSDataOutputStream fileOut = fs.create (path, false);
         
         return new TriangleRecordWriter(fileOut);
-    }
-    
+    }    
 }
