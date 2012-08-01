@@ -21,100 +21,112 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  * @author tdquang
  */
 public class TriangleCounting {
+    final static boolean DEBUG = true;
+    
     public static class MapPhase1 extends Mapper<Text, NodeInfo, Text, NodeInfo>
     {       
         @Override
 	protected void map (Text key, NodeInfo value, Context context) throws IOException, InterruptedException {
-            value.Type = NodeInfo.STRUCTURE; // To be sure it is structure
+            value.Type = NodeInfo.STRUCTURE; // To be sure it is structure, seems redundant
             context.write(key, value); // Write back the structure
             
             // Create messages and send
-//            for(String friend: value.Friends)
-//            {
-//                NodeInfo newValue = new NodeInfo();
-//                newValue.Type = NodeInfo.NEIGHBORINFO_REQUEST;
-//                newValue.ID = key.toString();
-//                newValue.Degree = value.Friends.size(); // Used for heavy edges matching
-//                
-//                context.write(new Text(friend), newValue);
-//            }
-	}
+            for(String friend: value.Friends)
+            {
+                NodeInfo newValue = new NodeInfo();
+                newValue.Type = NodeInfo.NEIGHBORINFO_REQUEST;
+                newValue.ID = key.toString();
+                newValue.Degree = value.Friends.size(); // Used for heavy edges matching
+                if (DEBUG) newValue.TriangleCount = newValue.Degree;
+                
+                context.write(new Text(friend), newValue);
+            }
+	} // void map()
     }
     
     public static class ReducePhase1 extends Reducer<Text, NodeInfo, Text, NodeInfo>{
         @ Override
 	protected void reduce (Text key, Iterable <NodeInfo> values, Context context) throws IOException, InterruptedException {
+            List<NodeInfo> cache = new ArrayList();
+            
             // Find the structure to get the degree of key
             int keyDegree = 0;
-            Iterable <NodeInfo> head = values;
                     
-            for(NodeInfo ni: values)
+            while(values.iterator().hasNext())
             {
+                NodeInfo ni = values.iterator().next();
+                
                 if (NodeInfo.STRUCTURE == ni.Type)
                 {
                     keyDegree = ni.Friends.size();
                     context.write(key, ni); // Release the structure of the graph
-                    
-                    break;
+                } 
+                else
+                {
+                    cache.add(ni);       
                 }
             }
             
-//            // Keep the list of lower degree for open triad
-//            List<String> apex = new ArrayList();
-//            List<Integer> degrees = new ArrayList(); // Corresponding degrees of apex
-//            
-//            // Generate candidate from higher degree node
-//            for(NodeInfo ni: head)
-//            {
-//                if (NodeInfo.NEIGHBORINFO_REQUEST == ni.Type)
-//                {
-//                    if (ni.Degree > keyDegree)
-//                    {
-//                        // Create candidate for closing open triad
-//                        NodeInfo newValue = new NodeInfo();
-//                        newValue.Type = NodeInfo.CANDIDATE;
-//                        context.write(new Text(ni.ID + "," + key), newValue);
-//                    }
-//                    else // Store apex for creating open triad
-//                    {
-//                        apex.add(ni.ID);
-//                        degrees.add(ni.Degree);
-//                    }
-//                }
-//            }
-//            
+            // Keep the list of lower degree for open triad
+            List<String> apex = new ArrayList();
+            List<Integer> degrees = new ArrayList(); // Corresponding degrees of apex
+            
+            // Generate candidate from higher degree node
+            for(NodeInfo ni: cache)
+            {
+                if (NodeInfo.NEIGHBORINFO_REQUEST == ni.Type)
+                {
+                    if (ni.Degree > keyDegree)
+                    {
+                        // Create candidate for closing open triad
+                        NodeInfo newValue = new NodeInfo();
+                        newValue.Type = NodeInfo.CANDIDATE;
+                        context.write(new Text(ni.ID + "," + key), newValue);
+                    }
+                    else // Store apex for creating open triad
+                    {
+                        apex.add(ni.ID);
+                        degrees.add(ni.Degree);
+                    }
+                }
+            } // end for            
+            
 //            // Sorting descending based on degree
 //            int length = apex.size();
-//            for(int i = 0; i < length - 1; i++)
-//            {
-//                for (int j = i + 1; j < length; j++)
-//                {
-//                    if (degrees.get(i) < degrees.get(j))
-//                    {
-//                        // Do the permutation
-//                        String temp = apex.get(i);
-//                        apex.set(i, apex.get(j)) ;
-//                        apex.set(j, temp);
-//                        
-//                        Integer num = degrees.get(i);
-//                        degrees.set(i, degrees.get(j));
-//                        degrees.set(j, num);
-//                    } // end if
-//                } // end for
-//            } // end for
 //            
-//            // Create open triads
-//            for(int i = 0; i < length - 1; i++)
+//            if (length > 1)
 //            {
-//                for (int j = i + 1; j < length; j++)
+//                for(int i = 0; i < length - 1; i++)
 //                {
-//                    NodeInfo newValue = new NodeInfo();
-//                    newValue.Type = NodeInfo.OPENTRIAD;
-//                    newValue.ID = key.toString();
-//                            
-//                    context.write(new Text(apex.get(i) + "," + apex.get(j)), newValue);
-//                }
-//            } // end for
+//                    for (int j = i + 1; j < length; j++)
+//                    {
+//                        if (degrees.get(i) < degrees.get(j))
+//                        {
+//                            // Do the permutation
+//                            String temp = apex.get(i);
+//                            apex.set(i, apex.get(j)) ;
+//                            apex.set(j, temp);
+//
+//                            Integer num = degrees.get(i);
+//                            degrees.set(i, degrees.get(j));
+//                            degrees.set(j, num);
+//                        } // end if
+//                    } // end for
+//                } // end for
+//
+//                // Create open triads
+//                for(int i = 0; i < length - 1; i++)
+//                {
+//                    for (int j = i + 1; j < length; j++)
+//                    {
+//                        NodeInfo newValue = new NodeInfo();
+//                        newValue.Type = NodeInfo.OPENTRIAD;
+//                        newValue.ID = key.toString();
+//
+//                        context.write(new Text(apex.get(i) + "," + apex.get(j)), newValue);
+//                    }
+//                } // end for
+//            } // end if
 	} // end funtion reduce
     }    
        

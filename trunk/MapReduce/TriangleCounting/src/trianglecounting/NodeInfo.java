@@ -27,6 +27,7 @@ public class NodeInfo implements WritableComparable {
     public static final int TRIANGLE = 8;
     
     public static final String DATE_PATTERN = "d/m/yyyy";
+    final boolean DEBUG = true;
     
     //--------------------------------------------------
     public int Type; // Type of this message 
@@ -95,7 +96,8 @@ public class NodeInfo implements WritableComparable {
         else if (Type == NEIGHBORINFO_REQUEST)
         {
             out.writeUTF(ID);
-            out.write(Degree);
+            out.writeInt(Degree);
+            if (DEBUG) out.writeInt(TriangleCount);
         }
         else if (Type == CANDIDATE) // The key already contain info
         {            
@@ -139,7 +141,9 @@ public class NodeInfo implements WritableComparable {
         } 
         else if (Type == NEIGHBORINFO_REQUEST)
         {
+            ID = in.readUTF();
             Degree = in.readInt();
+            if (DEBUG) TriangleCount = in.readInt();
         }
         else if (Type == CANDIDATE) // The key contain info
         {            
