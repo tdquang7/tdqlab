@@ -71,4 +71,13 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <target name="-post-jar">
+        <jar destfile="TC.jar">
+            <zipfileset src="dist/TriangleCounting.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="trianglecounting.TriangleCounting"/>
+                <attribute name="Class-Path" value="${mf.classpath}"/>
+            </manifest>
+        </jar>
+    </target>
 </project>
