@@ -47,15 +47,14 @@ public class TriangleCounting {
     public static class ReducePhase1 extends Reducer<Text, NodeInfo, Text, NodeInfo>{
         @ Override
 	protected void reduce (Text key, Iterable <NodeInfo> values, Context context) throws IOException, InterruptedException {
-            List<NodeInfo> cache = new ArrayList();
+            ArrayList<String> cacheID = new ArrayList();
+            ArrayList<Integer> cacheDegree = new ArrayList();
             
             // Find the structure to get the degree of key
             int keyDegree = 0;
                     
-            while(values.iterator().hasNext())
-            {
-                NodeInfo ni = values.iterator().next();
-                
+            for(NodeInfo ni: values)
+            {   
                 if (NodeInfo.STRUCTURE == ni.Type)
                 {
                     keyDegree = ni.Friends.size();
@@ -63,70 +62,72 @@ public class TriangleCounting {
                 } 
                 else
                 {
-                    cache.add(ni);       
+                    cacheID.add(ni.ID);
+                    cacheDegree.add(ni.Degree);
                 }
             }
             
-            // Keep the list of lower degree for open triad
-            List<String> apex = new ArrayList();
-            List<Integer> degrees = new ArrayList(); // Corresponding degrees of apex
-            
-            // Generate candidate from higher degree node
-            for(NodeInfo ni: cache)
-            {
-                if (NodeInfo.NEIGHBORINFO_REQUEST == ni.Type)
+            if (keyDegree > 1)
+            {            
+                // Keep the list of lower degree for open triad
+                List<String> apex = new ArrayList();
+                List<Integer> degrees = new ArrayList(); // Corresponding degrees of apex
+
+                // Generate candidate from higher degree node
+                for(int i = 0; i < cacheID.size(); i++)
                 {
-                    if (ni.Degree > keyDegree)
+                        if (cacheDegree.get(i) > keyDegree)
+                        {
+                            // Create candidate for closing open triad
+                            NodeInfo newValue = new NodeInfo();
+                            newValue.Type = NodeInfo.CANDIDATE;
+                            context.write(new Text(cacheID.get(i) + "," + key), newValue);
+                        }
+                        else // Store apex for creating open triad
+                        {
+                            apex.add(cacheID.get(i));
+                            degrees.add(cacheDegree.get(i));
+                        }
+
+                } // end for            
+
+                // Sorting descending based on degree
+                int length = apex.size();
+
+                if (length > 1)
+                {
+                    for(int i = 0; i < length - 1; i++)
                     {
-                        // Create candidate for closing open triad
-                        NodeInfo newValue = new NodeInfo();
-                        newValue.Type = NodeInfo.CANDIDATE;
-                        context.write(new Text(ni.ID + "," + key), newValue);
-                    }
-                    else // Store apex for creating open triad
+                        for (int j = i + 1; j < length; j++)
+                        {
+                            if (degrees.get(i) < degrees.get(j))
+                            {
+                                // Do the permutation
+                                String temp = apex.get(i);
+                                apex.set(i, apex.get(j)) ;
+                                apex.set(j, temp);
+
+                                Integer num = degrees.get(i);
+                                degrees.set(i, degrees.get(j));
+                                degrees.set(j, num);
+                            } // end if
+                        } // end for
+                    } // end for
+
+                    // Create open triads
+                    for(int i = 0; i < length - 1; i++)
                     {
-                        apex.add(ni.ID);
-                        degrees.add(ni.Degree);
-                    }
-                }
-            } // end for            
-            
-//            // Sorting descending based on degree
-//            int length = apex.size();
-//            
-//            if (length > 1)
-//            {
-//                for(int i = 0; i < length - 1; i++)
-//                {
-//                    for (int j = i + 1; j < length; j++)
-//                    {
-//                        if (degrees.get(i) < degrees.get(j))
-//                        {
-//                            // Do the permutation
-//                            String temp = apex.get(i);
-//                            apex.set(i, apex.get(j)) ;
-//                            apex.set(j, temp);
-//
-//                            Integer num = degrees.get(i);
-//                            degrees.set(i, degrees.get(j));
-//                            degrees.set(j, num);
-//                        } // end if
-//                    } // end for
-//                } // end for
-//
-//                // Create open triads
-//                for(int i = 0; i < length - 1; i++)
-//                {
-//                    for (int j = i + 1; j < length; j++)
-//                    {
-//                        NodeInfo newValue = new NodeInfo();
-//                        newValue.Type = NodeInfo.OPENTRIAD;
-//                        newValue.ID = key.toString();
-//
-//                        context.write(new Text(apex.get(i) + "," + apex.get(j)), newValue);
-//                    }
-//                } // end for
-//            } // end if
+                        for (int j = i + 1; j < length; j++)
+                        {
+                            NodeInfo newValue = new NodeInfo();
+                            newValue.Type = NodeInfo.OPENTRIAD;
+                            newValue.ID = key.toString();
+
+                            context.write(new Text(apex.get(i) + "," + apex.get(j)), newValue);
+                        }
+                    } // end for creating open triad
+                } // end if (length of apex less than key > 1)
+            } // end if (keyDegree > 1)
 	} // end funtion reduce
     }    
        
