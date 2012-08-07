@@ -23,8 +23,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class TriangleCounting {
     final static boolean DEBUG = true;
     
-    public static class MapPhase1 extends Mapper<Text, NodeInfo, Text, NodeInfo>
-    {       
+    public static class MapPhase1 extends Mapper<Text, NodeInfo, Text, NodeInfo>{       
         @Override
 	protected void map (Text key, NodeInfo value, Context context) throws IOException, InterruptedException {
             value.Type = NodeInfo.STRUCTURE; // To be sure it is structure, seems redundant
@@ -36,8 +35,7 @@ public class TriangleCounting {
                 NodeInfo newValue = new NodeInfo();
                 newValue.Type = NodeInfo.NEIGHBORINFO_REQUEST;
                 newValue.ID = key.toString();
-                newValue.Degree = value.Friends.size(); // Used for heavy edges matching
-                if (DEBUG) newValue.TriangleCount = newValue.Degree;
+                newValue.Degree = value.Friends.size(); // Used for heavy edges matching               
                 
                 context.write(new Text(friend), newValue);
             }
@@ -143,7 +141,7 @@ public class TriangleCounting {
     
     public static class ReducePhase2 extends Reducer<Text, NodeInfo, Text, NodeInfo>{
         @ Override
-	protected void reduce (Text key, Iterable <NodeInfo> values, Context context) throws IOException, InterruptedException {
+	protected void reduce (Text key, Iterable <NodeInfo> values, Context context) throws IOException, InterruptedException {            
             int count = 0;
             String nodeID = ""; // The node that we should count the ID
             
@@ -151,13 +149,13 @@ public class TriangleCounting {
             {
                 count++;
                 
-                if (ni.Type == NodeInfo.OPENTRIAD)
+                if (ni.ID.length() != 0) // It is the open triad
                 {
-                    nodeID = ni.ID;
+                    nodeID = ni.ID; 
                 }
             }
             
-            if (count > 1)
+            if (count > 1) // Got the candidate and the open triad
             {
                 // Found the triangle
                 NodeInfo newValue = new NodeInfo();
@@ -207,7 +205,7 @@ public class TriangleCounting {
         Path outPath = new Path(args[1]);
         
         Configuration conf = new Configuration();
-        Job job = new Job(conf, "Triangle counting");
+        Job job = new Job(conf, "Triangle counting phase 1 - Open triads");
         job.setJarByClass(TriangleCounting.class);
         job.setMapperClass(MapPhase1.class);
         job.setReducerClass(ReducePhase1.class);
@@ -222,5 +220,39 @@ public class TriangleCounting {
         FileOutputFormat.setOutputPath(job, outPath);
                 
         job.waitForCompletion(true);
+        // -----------------------------------------------------------------
+        
+        conf = new Configuration();        
+        job = new Job(conf, "Triangle counting phase 2 - Finding triangles");
+        job.setJarByClass(TriangleCounting.class);
+        job.setMapperClass(MapPhase2.class);
+        job.setReducerClass(ReducePhase2.class);
+        
+        inPath = outPath;
+        outPath = new Path(args[1] + "1");
+        
+        job.setInputFormatClass(TriangleInputFormat.class);
+        job.setOutputFormatClass(TriangleOutputFormat.class);
+        
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(NodeInfo.class);
+        
+        FileInputFormat.addInputPath(job, inPath);
+        FileOutputFormat.setOutputPath(job, outPath);
+        
+        job.waitForCompletion(true);        
+        // ----------------------------------------------------------------
+//        job = new Job(conf, "Triangle counting phase 3 - Update structure");
+//        job.setJarByClass(TriangleCounting.class);
+//        job.setMapperClass(MapPhase2.class);
+//        job.setReducerClass(ReducePhase2.class);
+//        
+//        inPath = outPath;
+//        outPath = new Path(args[1] + "2");
+//        
+//        FileInputFormat.addInputPath(job, inPath);
+//        FileOutputFormat.setOutputPath(job, outPath);
+//        
+//        job.waitForCompletion(true);
     }
 }
