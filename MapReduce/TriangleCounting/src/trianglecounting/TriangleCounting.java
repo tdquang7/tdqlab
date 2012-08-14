@@ -150,17 +150,16 @@ public class TriangleCounting {
             {
                 count++;
                 
+                if (ni.Name.length() != 0) // structure
+                    context.write(key, ni);
+                
                 if (ni.ID.length() != 0) // It is the open triad
                 {
                     nodeID = ni.ID; 
                 }
-                else // The structure
-                {
-                    context.write(key, ni);
-                }
             }
             
-            if (count > 1) // Got the candidate and the open triad
+            if (count >= 2) // Got the candidate and the open triad
             {
                 // Found the triangle
                 NodeInfo newValue = new NodeInfo();                
@@ -188,7 +187,7 @@ public class TriangleCounting {
             
             for(NodeInfo ni: values)
             {                
-                if (ni.Type == NodeInfo.STRUCTURE)
+                if (ni.ID.length() != 0) // Structure
                 {
                     structure = ni;
                 }
@@ -246,17 +245,24 @@ public class TriangleCounting {
         
         job.waitForCompletion(true);        
         // ----------------------------------------------------------------
-//        job = new Job(conf, "Triangle counting phase 3 - Update structure");
-//        job.setJarByClass(TriangleCounting.class);
-//        job.setMapperClass(MapPhase2.class);
-//        job.setReducerClass(ReducePhase2.class);
-//        
-//        inPath = outPath;
-//        outPath = new Path(args[1] + "2");
-//        
-//        FileInputFormat.addInputPath(job, inPath);
-//        FileOutputFormat.setOutputPath(job, outPath);
-//        
-//        job.waitForCompletion(true);
+        
+        job = new Job(conf, "Triangle counting phase 3 - Update structure");
+        job.setJarByClass(TriangleCounting.class);
+        job.setMapperClass(MapPhase3.class);
+        job.setReducerClass(ReducePhase3.class);
+        
+        inPath = outPath;
+        outPath = new Path(args[1] + "2");
+        
+        job.setInputFormatClass(TriangleInputFormat.class);
+        job.setOutputFormatClass(TriangleOutputFormat.class);
+        
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(NodeInfo.class);
+        
+        FileInputFormat.addInputPath(job, inPath);
+        FileOutputFormat.setOutputPath(job, outPath);
+        
+        job.waitForCompletion(true);        
     }
 }
