@@ -26,20 +26,21 @@ public class StringHelper {
         String value = "";
         
         String[] parts = line.split(seperator);
-        value = parts[1];        
+        
+        if (parts.length > 1) 
+            value = parts[1];        
         
         return value;
     }
     
     public static KeyValueSplitResult SplitToKeyValue(String line, String seperator)
     {
-        KeyValueSplitResult result = null;
+        KeyValueSplitResult result = new KeyValueSplitResult();
         
         String[] parts = line.split(seperator);
         
         if (parts.length == 2)
-        {
-            result = new KeyValueSplitResult();
+        {            
             result.Key = parts[0];
             result.Value = parts[1];
         }

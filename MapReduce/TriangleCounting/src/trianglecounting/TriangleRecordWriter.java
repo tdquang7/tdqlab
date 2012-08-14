@@ -41,12 +41,16 @@ public class TriangleRecordWriter extends RecordWriter<Text, NodeInfo>
         _writer.write("Birthday: " + sdf.format(node.Birthday) + LINEBREAK);
         
         _writer.write(node.Friends.size() + " friends" + LINEBREAK);
+                
         for(String friendID: node.Friends)
         {
             _writer.write(friendID + BLANK);
         }
         
-        _writer.write(LINEBREAK + LINEBREAK);
+        if (node.Friends.size() > 0)
+            _writer.write(LINEBREAK);
+        
+        _writer.write(LINEBREAK);
     }
 
     @Override
