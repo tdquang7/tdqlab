@@ -74,14 +74,15 @@ public class TriangleCounting {
                 // Generate candidate from higher degree node
                 for(int i = 0; i < cacheID.size(); i++)
                 {
-                        if (cacheDegree.get(i) > keyDegree)
+                        if (cacheDegree.get(i) >= keyDegree)
                         {
                             // Create candidate for closing open triad
                             NodeInfo newValue = new NodeInfo();
                             newValue.Type = NodeInfo.CANDIDATE;
                             context.write(new Text(cacheID.get(i) + "," + key), newValue);
                         }
-                        else // Store apex for creating open triad
+                        // Store apex for creating open triad
+                        if (cacheDegree.get(i) <= keyDegree)  
                         {
                             apex.add(cacheID.get(i));
                             degrees.add(cacheDegree.get(i));
@@ -153,13 +154,16 @@ public class TriangleCounting {
                 {
                     nodeID = ni.ID; 
                 }
+                else // The structure
+                {
+                    context.write(key, ni);
+                }
             }
             
             if (count > 1) // Got the candidate and the open triad
             {
                 // Found the triangle
-                NodeInfo newValue = new NodeInfo();
-                newValue.Type = NodeInfo.TRIANGLE;
+                NodeInfo newValue = new NodeInfo();                
                 context.write(new Text(nodeID), newValue);
             }
         }
@@ -223,7 +227,7 @@ public class TriangleCounting {
         // -----------------------------------------------------------------
         
         conf = new Configuration();        
-        job = new Job(conf, "Triangle counting phase 2 - Finding triangles");
+        job = new Job(conf, "Triangle counting phase 2 - Find triangles");
         job.setJarByClass(TriangleCounting.class);
         job.setMapperClass(MapPhase2.class);
         job.setReducerClass(ReducePhase2.class);

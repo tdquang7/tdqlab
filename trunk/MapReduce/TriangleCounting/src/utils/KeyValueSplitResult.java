@@ -14,7 +14,8 @@ public class KeyValueSplitResult {
     
     public KeyValueSplitResult()
     {
-        
+        Key = "";
+        Value = "";
     }
     
     public KeyValueSplitResult(String newKey, String newValue)

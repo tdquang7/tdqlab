@@ -32,6 +32,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
     Text _key;
     NodeInfo _value;
     long _fileSize;
+    String cache = "";
     
     public TriangleRecordReader(Configuration conf, FileSplit split) throws IOException {
         _split = split;
@@ -52,13 +53,20 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
 
     @Override
     public boolean nextKeyValue() throws IOException, InterruptedException {
-        if (_in.getPos() < _fileSize) // Still can read
+        if ((_in.getPos() < _fileSize) && (_fileSize > 0))// Still can read
         {
             final String COLON = ": ";
             final String BLANK = " ";
             final String DATE_PATTERN = "d/m/yyyy";            
             
-            KeyValueSplitResult result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+            String line = "";
+            if (cache.length() != 0)
+                line = cache;
+            else
+                line = _in.readLine();
+            
+            KeyValueSplitResult result = StringHelper.SplitToKeyValue(line, COLON);
+            //if (result == null) return false;
             
             String id = result.Value;
             _key = new Text(result.Value);
@@ -66,7 +74,9 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             if(result.Key.contains("Key"))
             {
                 // Read next line to get id
-                result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+                result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);                
+                //if (result == null) return false;
+                
                 id = result.Value;
             }            
             
@@ -74,6 +84,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             int triangles = 0;
             String name = "";
             result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+            //if(result == null) return false;
             
             if (result.Key.contains("Triangle"))
             {
@@ -81,6 +92,7 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
                 
                 // Read next line to get name
                 result = StringHelper.SplitToKeyValue(_in.readLine(), COLON);
+                //if(result == null) return false;
             }
             
             name = result.Value;
@@ -102,13 +114,16 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
             //* Get the list of friends
             String value = StringHelper.GetValue1(_in.readLine(), BLANK);
             int friendsCount = Integer.parseInt(value); // Not use this number
-            
-            String line = _in.readLine(); 
-            String[] parts = line.split(BLANK);
             List<String> friends = new ArrayList();
-            friends.addAll(Arrays.asList(parts));
             
-            _in.readLine(); // Eat empty line
+            if (friendsCount > 0) {
+                line = _in.readLine(); 
+                String[] parts = line.split(BLANK);
+                
+                friends.addAll(Arrays.asList(parts));
+            }
+            
+            cache = _in.readLine(); // Eat empty line
             
             //* Turn info into key and value                     
             _value = new NodeInfo(id, triangles, name, email, birthday, friends);            
@@ -131,7 +146,10 @@ public class TriangleRecordReader extends RecordReader<Text, NodeInfo>{
 
     @Override
     public float getProgress() throws IOException, InterruptedException {
-        return _in.getPos() / _fileSize;
+        if (_fileSize > 0)
+            return _in.getPos() / _fileSize;
+        else
+            return 0;
     }
 
     @Override
