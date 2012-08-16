@@ -74,20 +74,38 @@ public class TriangleCounting {
                 // Generate candidate from higher degree node
                 for(int i = 0; i < cacheID.size(); i++)
                 {
-                        if (cacheDegree.get(i) >= keyDegree)
+                    if (cacheDegree.get(i) > keyDegree)
+                    {
+                        // Create candidate for closing open triad
+                        NodeInfo newValue = new NodeInfo();
+                        newValue.Type = NodeInfo.CANDIDATE;
+                        context.write(new Text(cacheID.get(i) + "," + key), newValue);                            
+                    } // end if generate candidata
+
+                    // Store apex for creating open triad
+                    if (cacheDegree.get(i) < keyDegree)  
+                    {
+                        apex.add(cacheID.get(i));
+                        degrees.add(cacheDegree.get(i));
+                    } // end if storing apex for open triad
+
+                    // Special case when equal
+                    if (cacheDegree.get(i) == keyDegree)
+                    {
+                        if (cacheID.get(i).compareTo(key.toString()) > 0)
                         {
-                            // Create candidate for closing open triad
+                            // Candidate
                             NodeInfo newValue = new NodeInfo();
                             newValue.Type = NodeInfo.CANDIDATE;
-                            context.write(new Text(cacheID.get(i) + "," + key), newValue);
+                            context.write(new Text(cacheID.get(i) + "," + key), newValue);                            
                         }
-                        // Store apex for creating open triad
-                        if (cacheDegree.get(i) <= keyDegree)  
+                        else 
                         {
+                            // Apex for creating open triad
                             apex.add(cacheID.get(i));
                             degrees.add(cacheDegree.get(i));
                         }
-
+                    }
                 } // end for            
 
                 // Sorting descending based on degree
@@ -109,7 +127,23 @@ public class TriangleCounting {
                                 Integer num = degrees.get(i);
                                 degrees.set(i, degrees.get(j));
                                 degrees.set(j, num);
-                            } // end if
+                            } // end if 
+                            
+                            // Special handle when equal
+                            if (degrees.get(i) == degrees.get(j))
+                            {
+                                if (apex.get(i).compareTo(apex.get(j)) < 0)
+                                {
+                                    // Do the permutation
+                                    String temp = apex.get(i);
+                                    apex.set(i, apex.get(j)) ;
+                                    apex.set(j, temp);
+
+                                    Integer num = degrees.get(i);
+                                    degrees.set(i, degrees.get(j));
+                                    degrees.set(j, num);
+                                }
+                            }
                         } // end for
                     } // end for
 
